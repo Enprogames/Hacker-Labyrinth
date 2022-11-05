@@ -31,7 +31,7 @@ Print
 
 declare time=4.00
 userID=$(whoami)
-declare -i diff=3
+declare -i diff=2
 declare -i powerUp
 declare -i currLvl=0
 declare -i maxLvl=3
