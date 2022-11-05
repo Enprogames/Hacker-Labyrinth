@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include "header_15Tiles.h"
+#include "fifteenTiles_header.h"
 
 using namespace std;
 
@@ -9,14 +9,15 @@ int main()
 {
     char movement;
     int difficulty = 1;
-    int inversionNum = 0;
     bool gameFinished = false;
 
     FifteenTiles Game(difficulty);
 
+    cout << "\nYou find yourself in a room with a large 4-by-4 grid containing 15 tiles labeled 1-15 in random order and one empty space mounted to a wall. On the opposite facing wall are mounted spikes. You hear a voice on the loudspeaker…" << endl;
+    cout << "\n “You have 5 minutes to arrange the 15 tiles from low to high, begin”" << endl;
+
     do
     {
-        system("clear");
         Game.printMenu();
         Game.printBoard();
 
@@ -24,6 +25,8 @@ int main()
         Game.move(movement);
 
         gameFinished = Game.complete();
+
+        system("clear");
 
     } while(!gameFinished);
 

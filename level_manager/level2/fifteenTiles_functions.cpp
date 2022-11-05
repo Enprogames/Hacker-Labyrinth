@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#include "header_15Tiles.h"
+#include "fifteenTiles_header.h"
 
 using namespace std;
 
