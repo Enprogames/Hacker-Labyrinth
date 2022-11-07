@@ -1,0 +1,6 @@
+You find yourself in a room with many blocks of different sizes. The blocks are labeled with numbers. It appears that the numbers indicate how many inches tall they are. You hear a voice on a loudspeaker:
+
+“In 2 minutes, acid will begin to rise. It will flood the whole room and dissolve everything in it unless you can find a way to block it from spreading throughout the whole room. Here’s a hint: the acid will rise as high as your highest pair of two blocks stacked together.”
+You notice that on the floor there seems to be a long slot across the whole room. The player sees a hole on one side of the slot. Perhaps this is where the acid comes from.
+
+The blocks are too skinny and unstable to stand on when stood up, so you won’t be able to stand on them.
