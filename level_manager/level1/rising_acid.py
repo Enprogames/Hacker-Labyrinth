@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 import os
 import random
@@ -32,7 +32,7 @@ def read_prompt_file(prompt_file: str) -> str:
     elif Path('level1', prompt_file).exists():
         prompt_file_dir = Path('level1')
     elif Path('', prompt_file).exists():
-        prompt_file_dir = Path('', prompt_file)
+        prompt_file_dir = Path('')
     else:
         raise OSError(f"The file {prompt_file} couldn't be found.")
     with open(Path(prompt_file_dir, prompt_file), encoding="utf8") as fp:
