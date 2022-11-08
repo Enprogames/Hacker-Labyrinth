@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cctype>
 #include "fifteenTiles_header.h"
 
 using namespace std;
@@ -7,8 +8,7 @@ using namespace std;
 FifteenTiles::FifteenTiles(int difficulty)
 {
     
-    switch (difficulty)
-    {
+    switch (difficulty) {
     case 1:
         randomizeValue = 1000;
         break;
@@ -20,7 +20,7 @@ FifteenTiles::FifteenTiles(int difficulty)
         break;
     
     default:
-        break;
+        randomizeValue = 1000;
     }
 
     for (int row = 0; row < size; row++)
@@ -31,13 +31,16 @@ FifteenTiles::FifteenTiles(int difficulty)
         }
     }
 
-    findSpace();
+    findSpace(); // Locate row and col of the space character in fifteenTilesBoard
 
-    randomizeBoard();
 
-    while (!solvable())
+    randomizeBoard(); // Randomize the contents of fifteenTilesBoard
+
+
+    while (!solvable()) // Calculate if the puzzle is solvable
+
     {
-        randomizeBoard();
+        randomizeBoard(); // If puzzle is not solvable, re-organize fifteenTilesBoard
     }
 }
 
@@ -63,11 +66,14 @@ void FifteenTiles::findSpace()
 }
 
 void FifteenTiles::randomizeBoard()
+// This function randomizes the contents of the fifteenTileBoard 2d array.
+    // It uses the randomizeValue set in the constructor to determine how scattered the board will be.
+   // The randomize value is determined by the game difficulty.
 {
-    for (int i = 0; i < randomizeValue; ++i) {
-        
-		const int nextMove = (rand() % size);
-		switch (nextMove) {
+    for (int i = 0; i < randomizeValue; ++i) 
+    {
+		const int nextMove = (rand() % 4); // Get a random value in the range of 0 - 4
+		switch (nextMove) { // Use the random value to make a random move 
 			case 0:
 				{
 					Move('w');
@@ -93,44 +99,50 @@ void FifteenTiles::randomizeBoard()
 }
 
 void FifteenTiles::Move(char movement)
+// This function moves the characters in fifteenTileBoard
+    // It takes in a character movement that decides what character will be moved in fifteenTileBoard. 
 {
-    int move_row = space_row;
-    int move_col = space_col;
+    int move_row = space_row; // Variable that stores the row the the to-be-moved character
+    int move_col = space_col; // Variable that stores the col the the to-be-moved character
 
-    switch (movement) {
-		case 'w':
+    movement = toupper(movement);
+    switch (movement) { // Based on the given movement
+		case 'W':
 			{
-				move_row = space_row + 1;
+				move_row++; // Move the tile on the above row of the space
 				break;
 			}
-		case 's':
+		case 'S':
 			{
-				move_row = space_row - 1;
+				move_row--; // Move the tile on the below row of the space
 				break;
 			}
-		case 'a':
+		case 'A':
 			{
-				move_col = space_col + 1;
+				move_col++; // Move the tile on the right col of the space
 				break;
 			}
-		case 'd':
+		case 'D':
 			{
-				move_col = space_col - 1;
+				move_col--; // Move the tile on the left col of the space
 				break;
 			}
+        default:
+                break;
 	}
 
-	if (move_row >= 0 && move_row < size && move_col >= 0 && move_col < size) // Make sure that the square to be moved is in bounds
+	if (move_row >= 0 && move_row < size && move_col >= 0 && move_col < size) // Make sure that the tile is moved inside the bound of fifteenTilesBoard
 
     {
         
-        swap(&fifteenTilesBoard[space_row][space_col], &fifteenTilesBoard[move_row][move_col]);
+        swap(&fifteenTilesBoard[space_row][space_col], &fifteenTilesBoard[move_row][move_col]); // Swap the tile and the space
 	}
 
-    findSpace();
+    findSpace(); // Locate row and col of the space character in fifteenTilesBoard
 }
 
 void FifteenTiles::swap(char *a, char *b)
+// Typical C++ swap function
 {
     char temp = *a;
     *a = *b;
@@ -138,6 +150,9 @@ void FifteenTiles::swap(char *a, char *b)
 }
 
 bool FifteenTiles::checkIfComplete()
+// This function compares the fifteenTileBoard to the initialBoard
+    // Returns true if fifteenTileBoard are equal initialBoard
+    // Returns false otherwise
 {
     for (int row = 0; row < size; row++)
     {
@@ -154,13 +169,15 @@ bool FifteenTiles::checkIfComplete()
 }
 
 bool FifteenTiles::solvable()
+// This function checks if the randomized puzzle board is solvable
 {
     
-    char inversionArr[16];
-    int i = 0;
-    int fromBottom;
+    char inversionArr[16]; // 1d Array that holds the contents of fifteenTilesBoard
+    int i = 0; // Counter for inversionArr index
 
-    for (int row = 0; row < size; row++)
+    int fromBottom; // Variable that holds the distance the space is from the bottom
+
+    for (int row = 0; row < size; row++) // Put the contents of fifteenTilesBoard into inversionArr 
     {
 
         for (int col = 0; col < size; col++)
@@ -170,48 +187,51 @@ bool FifteenTiles::solvable()
         }
     }
 
-    for (int i = 0; i < size * size - 1; i++)
+    for (int i = 0; i < size * size - 1; i++) // For each element in the inversionArr
     {
         for (int j = i + 1; j < size * size; j++)
         {
-            if (int(inversionArr[i]) > int(inversionArr[j]))
+            if (int(inversionArr[i]) > int(inversionArr[j])) // check if each precising index is grater than the current index
             {
-                inversionNum++;
+                inversionCount++; // If so, increment inversionCount
             }
         }
     }
 
-
     fromBottom = size - space_row - 1;
 
-    if (inversionNum % 2 == 0 && (fromBottom == 1 || fromBottom == 3))
+    if (inversionCount % 2 == 0 && (fromBottom == 1 || fromBottom == 3)) // If the inversion count is even and the distance the space is from the bottom is odd
     {
+        return true; // Puzzle is solvable
     }
-    else if (inversionNum % 2 != 0 && (fromBottom == 2 || fromBottom == 4))
+    else if (inversionCount % 2 != 0 && (fromBottom == 2 || fromBottom == 4)) // If the inversion count is odd and the distance the space is from the bottom is even
     {
-    }
-    else 
-    {
-        return false;
-    }
+        return true; // Puzzle is solvable
 
-    return true;
+    }
+    else // For all other cases
+    {
+        return false; // Puzzle is not solvable
+    }
 
 }
 
 // Public -----------------------------------------------------------------------------------------------------
 
 void FifteenTiles::move(char m)
+// Public caller function for Move
 {
     Move(m);
 }
 
 bool FifteenTiles::complete()
+// Public caller function for checkIfComplete
 {
     return checkIfComplete();
 }
 
 void FifteenTiles::printBoard()
+// This function prints the contents of fifteenTilesBoard
 {
 
     for (int row = 0; row < size; row++)
@@ -243,6 +263,7 @@ void FifteenTiles::printBoard()
 }
 
 void FifteenTiles::printMenu()
+// This function prints the control menu for the game
 {
     cout << endl << "w = Up, s = Down, a = Left, d = Right" << endl;
 }

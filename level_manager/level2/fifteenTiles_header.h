@@ -8,7 +8,7 @@ class FifteenTiles {
         const int size = 4; 
         long int randomizeValue;
 
-        int inversionNum = 0;
+        int inversionCount = 0;
 
         const char initialBoard[4][4] =
         {
