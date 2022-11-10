@@ -15,11 +15,6 @@ class PowerUps
         int key;
     };
 
-    powerUp instantFinalLevel; // Power up 1
-    powerUp skipNextLevel; // Power up 2
-    powerUp plusMinusOneMinutePermanent; // Power up 3
-    powerUp plusMinusOneMinuteNextGame; // Power up 4
-
     int givePowerUp();
 
     public:
@@ -27,5 +22,12 @@ class PowerUps
     PowerUps();
     ~PowerUps();
 
-    int getPowerUp();    
+    int getPowerUp();   
+
+    powerUp instantFinalLevel; // Power up 1
+    powerUp skipNextLevel; // Power up 2
+    powerUp minusOneMinutePermanent; // Power up 3
+    powerUp plusOneMinutePermanent; // Power up 4
+    powerUp minusOneMinuteNextGame; // Power up 5
+    powerUp plusOneMinuteNextGame; // Power up 6 
 };

@@ -12,8 +12,8 @@ int main ()
     bool valid;
     PowerUps PU;
 
-    cout << "\nYou are faced with two doors, each leeding to a uniqe path" << endl;
-
+    cout << "\nYou are faced with two doors, each leading to a unique path" << endl;
+    system("clear");
     system("cat path_choice.txt");
 
     cout << endl;
@@ -44,7 +44,31 @@ int main ()
         }
     } while (!valid);
 
-    cout << "You recived power up number " << PU.getPowerUp() << endl;
-    
+    int powerUp = PU.getPowerUp();
+
+    switch (powerUp)
+    {
+        case 0:
+            cout << "Nothing is behind this door..." << endl;
+            break;
+        case 1:
+            cout << endl << PU.instantFinalLevel.prompt << endl;
+            break;
+        case 2:
+            cout << endl << PU.skipNextLevel.prompt << endl;
+            break;
+        case 3:
+            cout << endl << PU.plusOneMinutePermanent.prompt << endl;
+            break;
+        case 4:
+            cout << endl << PU.minusOneMinutePermanent.prompt << endl;
+            break;
+        case 5:
+            cout << endl << PU.plusOneMinuteNextGame.prompt << endl;
+            break;
+        case 6:
+            cout << endl << PU.minusOneMinuteNextGame.prompt << endl;
+            break;
+    }
     return 0;
 }
