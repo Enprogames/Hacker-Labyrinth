@@ -1,6 +1,6 @@
 #pragma once
-#include "LvlFunctions.cpp"
-#include "LvlManager.cpp"
+//#include "LvlFunctions.cpp"
+//#include "LvlManager.cpp"
 
 #include <iostream>
 #include <iterator>
@@ -9,20 +9,22 @@
 using namespace std;
 
 class lvlMan {
+private:
+  template <typename Iterator, typename Random>
+  Iterator random_r(Iterator start, Iterator end, Random &g);
+
 public:
   float Time;
   int GameOver = 0;
   int numLvl, currLvl;
   int lvlUp;
   // might not need to inlcude this to the header
-  //std::vector<int> Puzzle = {1, 2, 3, 4, 5};
+  std::vector<int> Puzzle = {1, 2, 3, 4, 5};
 
-  lvlMan() {}
-  ~lvlMan() {}
+  lvlMan() {};
+  ~lvlMan() {};
 
-  template <typename Iterator, typename Random>
-  Iterator randomize(Iterator start, Iterator end, Random &g);
-  template <typename Iterator> Iterator randomize(Iterator start, Iterator end);
+  template <typename Iterator> Iterator random_r(Iterator start, Iterator end);
   int pathChoice();
   void puzzleCall(int Lvl);
 };

@@ -16,7 +16,7 @@ using namespace std;
 lvlMan::lvlMan(){}
 lvlMan::~lvlMan(){}
 
-int lvlMan::pathChoice(int Lvl){
+int lvlMan::pathChoice(){
     int lvlUp = system(". path_choice/pathChoicex");
     return lvlUp;
 }
@@ -26,14 +26,14 @@ void lvlMan::puzzleCall(int Lvl){
 }
 
 template<typename Iterator, typename Random>
-Iterator randomize(Iterator start, Iterator end, Random& g) {
+Iterator lvlMan::randomize(Iterator start, Iterator end, Random& g) {
     std::uniform_int_distribution<> dis(0, std::distance(start, end) - 1);
     std::advance(start, dis(g));
     return start;
 }
 
 template<typename Iterator>
-Iterator randomize(Iterator start, Iterator end) {
+Iterator lvlMan::randomize(Iterator start, Iterator end) {
     static std::random_device rd;
     static std::mt19937 gen(rd());
     return randomize(start, end, gen);
