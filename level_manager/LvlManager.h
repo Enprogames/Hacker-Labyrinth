@@ -11,7 +11,7 @@ using namespace std;
 class lvlMan {
 private:
   template <typename Iterator, typename Random>
-  Iterator random_r(Iterator start, Iterator end, Random &g);
+  Iterator select_randomly(Iterator start, Iterator end, Random &g);
 
 public:
   float Time;
@@ -19,12 +19,12 @@ public:
   int numLvl, currLvl;
   int lvlUp;
   // might not need to inlcude this to the header
-  std::vector<int> Puzzle = {1, 2, 3, 4, 5};
+  //std::vector<int> Puzzle = {1, 2, 3, 4, 5};
 
-  lvlMan() {};
-  ~lvlMan() {};
+  //lvlMan() {};
+  //~lvlMan() {};
 
-  template <typename Iterator> Iterator random_r(Iterator start, Iterator end);
+  template <typename Iterator> Iterator select_randomly(Iterator start, Iterator end);
   int pathChoice();
   void puzzleCall(int Lvl);
 };
