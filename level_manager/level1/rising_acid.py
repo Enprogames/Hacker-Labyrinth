@@ -27,13 +27,8 @@ class BlockSet:
 def read_prompt_file(prompt_file: str) -> str:
     initial_prompt = ""
     prompt_file_dir: os.PathLike = None
-    if Path('level_manager', 'level1', prompt_file).exists():
-        prompt_file_dir = Path('level_manager', 'level1')
-    elif Path('level1', prompt_file).exists():
-        prompt_file_dir = Path('level1')
-    elif Path('', prompt_file).exists():
-        prompt_file_dir = Path('')
-    else:
+    prompt_file_dir = Path(os.path.dirname(os.path.realpath(__file__)))
+    if not Path(prompt_file_dir, prompt_file).exists():
         raise OSError(f"The file {prompt_file} couldn't be found.")
     with open(Path(prompt_file_dir, prompt_file), encoding="utf8") as fp:
         initial_prompt = fp.read()
@@ -44,11 +39,11 @@ def read_prompt_file(prompt_file: str) -> str:
 if __name__ == '__main__':
     # setup the game
     retries = 3
-    min_height, max_height, width = random.randint(5, 10), random.randint(10, 20), random.randint(5, 20)
+    guess = None
     
+    min_height, max_height, width = random.randint(5, 10), random.randint(10, 20), random.randint(5, 20)
     blocks_set = BlockSet()
     blocks_set.generate_blocks(width, min_height, max_height)
-    guess = None
 
     # give initial prompt
     initial_prompt = read_prompt_file('initial_prompt.txt')
@@ -57,7 +52,7 @@ if __name__ == '__main__':
     print(f"You arrange the blocks and find that they have the following heights:\n{blocks_set.blocks}")
     print("How high must you stack the blocks?")
 
-    # if 
+    # continue looping until an answer is satisfactory or the user runs out of retries
     while retries >= 1 and guess != blocks_set.height:
         guess = input(f"Enter your guess. You have {retries} tries left:\n")
         try:
@@ -71,6 +66,6 @@ if __name__ == '__main__':
         else:
             print(f"{guess} is not correct.")
             retries -= 1
-    
+
     if retries == 0 and guess != blocks_set.height:
         print(f"The correct answer was {blocks_set.height}")
