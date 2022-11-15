@@ -49,7 +49,7 @@ int main ()
     switch (powerUp)
     {
         case 0:
-            cout << "Nothing is behind this door..." << endl;
+            cout << "Nothing is behind this door but a dark hallway leading to a dimly lit room..." << endl;
             break;
         case 1:
             cout << endl << PU.instantFinalLevel.prompt << endl;
