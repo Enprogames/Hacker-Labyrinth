@@ -13,7 +13,17 @@ using namespace std;
 //int GameOver = 0;
 //int numLvl, currLvl;
 //std::vector<int> Puzzle = {1, 2, 3, 4, 5};
+lvlMan::lvlMan(){}
+lvlMan::~lvlMan(){}
 
+int lvlMan::pathChoice(int Lvl){
+    int lvlUp = system(". path_choice/pathChoicex");
+    return lvlUp;
+}
+
+void lvlMan::puzzleCall(int Lvl){
+    //system(". Lvl");
+}
 
 template<typename Iterator, typename Random>
 Iterator randomize(Iterator start, Iterator end, Random& g) {
@@ -30,10 +40,4 @@ Iterator randomize(Iterator start, Iterator end) {
 }
 
 
-int pathChoice(int Lvl){
-    int lvlUp = system(". path_choice/pathChoicex");
-    return lvlUp;
-}
-void puzzleCall(int Lvl){
-    //system(". Lvl");
-}
+
