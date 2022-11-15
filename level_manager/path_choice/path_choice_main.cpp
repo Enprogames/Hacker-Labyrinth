@@ -70,5 +70,6 @@ int main ()
             cout << endl << PU.minusOneMinuteNextGame.prompt << endl;
             break;
     }
-    return 0;
+
+    return powerUp;
 }
