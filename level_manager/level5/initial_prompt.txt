@@ -1,0 +1,5 @@
+You hear a voice on the loudspeaker.
+"Do you remember different codes that you would have encountered in your everyday life before you were kidnapped?
+Perhaps the phone number of a family member that you may never see again?
+
+To pass this next challenge, you'll have to match the pattern for one of these types of codes using a regular expression."
