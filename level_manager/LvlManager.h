@@ -18,7 +18,8 @@ private:
 public:
   float Time;
   int GameOver = 0;
-  int numLvl, currLvl;
+  int numLvl = 0; 
+  int currLvl;
   int lvlUp;
   // might not need to inlcude this to the header
   //std::vector<int> Puzzle = {1, 2, 3, 4, 5};
