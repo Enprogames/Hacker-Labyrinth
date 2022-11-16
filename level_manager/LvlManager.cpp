@@ -1,12 +1,13 @@
 #include "LvlManager.h"
 #include <algorithm>
+#include <experimental/algorithm>
 #include <iostream>
 #include <iterator>
 #include <random>
 #include <unistd.h>
 #include <vector>
 using namespace std;
-
+experimental
 int main() {
   lvlMan G;
   std::vector<int> Puzzle{1, 2, 3, 4, 5};
@@ -18,7 +19,7 @@ int main() {
     }
     std::vector<int> out;
     size_t nelems = 1;
-    std::sample(Puzzle.begin(), Puzzle.end(), std::back_inserter(out), nelems,
+    std::experimental::sample(Puzzle.begin(), Puzzle.end(), std::back_inserter(out), nelems,
                 std::mt19937{std::random_device{}()});
     int rando = out.front();
 
