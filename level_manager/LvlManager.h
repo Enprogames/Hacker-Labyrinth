@@ -6,6 +6,8 @@
 #include <iterator>
 #include <random>
 #include <vector>
+#include <unistd.h>
+#include <algorithm>
 using namespace std;
 
 class lvlMan {
