@@ -71,5 +71,10 @@ int main ()
             break;
     }
 
+    cout << endl << "Enter any key to continue" << endl;
+    cin >> choice;
+    cin.clear();
+    cin.ignore(Num_to_ignore, '\n');
+
     return powerUp;
 }
