@@ -44,6 +44,7 @@ class RegexTestSet:
                         invalid_passes = False
                         break
                 else:
+                    valid_passes = True
                     invalid_passes = True
             except (TypeError, re.error):
                 pass
