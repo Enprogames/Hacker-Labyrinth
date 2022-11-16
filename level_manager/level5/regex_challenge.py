@@ -97,4 +97,5 @@ if __name__ == '__main__':
     if retries == 0 and not pattern_set.test_pattern(guess):
         print("A correct answer was {}".format(valid_pattern))
 
+    input("Press enter to continue")
     exit(1)

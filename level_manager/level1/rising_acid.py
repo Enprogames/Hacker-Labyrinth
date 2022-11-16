@@ -69,3 +69,5 @@ if __name__ == '__main__':
 
     if retries == 0 and guess != blocks_set.height:
         print(f"The correct answer was {blocks_set.height}")
+
+    input("Press enter to continue")
