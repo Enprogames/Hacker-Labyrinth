@@ -4,7 +4,7 @@ path="start_menu/"
 clear
 cat ${path}/Menu
 
-echo -n ">>USER ENTER OPTION HERE:  "
+echo -n "                              >>USER ENTER OPTION HERE:  "
 while true; do
 	
 	read Option
@@ -14,6 +14,7 @@ while true; do
 		S | s)
     			echo "Starting Game"
     			#Call to the main Game script
+			./level_manager/LvlManagerx
     		;;
 
   		D | d)
@@ -23,31 +24,31 @@ while true; do
     		then
         		diff=$Set
 			echo -n "Difficulty is set to Easy"
-			sleep 3s
+			sleep 2s
 			clear
 			cat ${path}/Menu
-			echo -n ">>USER ENTER OPTION HERE:  "
+			echo -n "                              >>USER ENTER OPTION HERE:  "
     		elif [[ $Set -eq 2 ]] 
     		then
         		diff=$Set
         		echo -n "Difficulty is set to Medium"
-        		sleep 3s
+        		sleep 2s
         		clear
         		cat ${path}/Menu
-			echo -n ">>USER ENTER OPTION HERE:  "
+			echo -n "                              >>USER ENTER OPTION HERE:  "
     		elif [[ $Set -eq 3 ]] 
     		then
         		diff=$Set
         		echo -n "Difficulty is set to Hard"
-        		sleep 3s
+        		sleep 2s
         		clear
         		cat ${path}/Menu
-			echo -n ">>USER ENTER OPTION HERE:  "
+			echo -n "                              >>USER ENTER OPTION HERE:  "
     		else
 	    		echo "Wrong input, Try again"
 			clear
 			cat ${path}/Menu
-			echo -n ">>USER ENTER OPTION HERE:  "
+			echo -n "                              >>USER ENTER OPTION HERE:  "
     		fi
     		;;
 
@@ -58,16 +59,16 @@ while true; do
 
   		Q | q)
     		echo "Quitting Program"
-    		sleep 2s
+    		sleep 1s
 		exit
     		;;
 
   		*)
     		echo "Wrong input"
-		sleep 2s
+		sleep 1s
 		clear
 		cat ${path}/Menu
-		echo -n ">>USER ENTER OPTION HERE:  "
+		echo -n "                              >>USER ENTER OPTION HERE:  "
     		;;
 	esac
 done

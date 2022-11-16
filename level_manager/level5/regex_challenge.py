@@ -4,29 +4,28 @@ import os
 import re
 import json
 import random
-from pathlib import Path
 
 
-def read_data_file(file_name: str) -> str:
+def read_data_file(file_name):
     data = ""
-    prompt_file_dir: os.PathLike = None
-    prompt_file_dir = Path(os.path.dirname(os.path.realpath(__file__)))
-    if not Path(prompt_file_dir, file_name).exists():
-        raise OSError(f"The file {file_name} couldn't be found.")
-    with open(Path(prompt_file_dir, file_name), encoding="utf8") as fp:
-        data = fp.read()
+    prompt_file_dir = None
+    prompt_file_dir = os.path.dirname(os.path.realpath(__file__))
+    if not os.path.exists(os.path.join(prompt_file_dir, file_name)):
+        raise OSError("The file {} couldn't be found.".format(file_name))
+    with open(os.path.join(prompt_file_dir, file_name), 'rb') as fp:
+        data = fp.read().decode('UTF-8')
 
     return data
 
 
 class RegexTestSet:
-    def __init__(self, name: str, valid_strings: list[str] = [],
-                 invalid_strings: list[str] = []):
-        self.name: str = name
-        self.valid_strings: list[str] = valid_strings
-        self.invalid_strings: list[str] = invalid_strings
+    def __init__(self, name, valid_strings=[],
+                 invalid_strings=[]):
+        self.name = name
+        self.valid_strings = valid_strings
+        self.invalid_strings = invalid_strings
 
-    def test_pattern(self, pattern: str):
+    def test_pattern(self, pattern):
 
         valid_passes = False
         invalid_passes = False
@@ -46,7 +45,7 @@ class RegexTestSet:
                         break
                 else:
                     invalid_passes = True
-            except TypeError:
+            except (TypeError, re.error):
                 pass
 
         return valid_passes and invalid_passes
@@ -60,29 +59,28 @@ if __name__ == '__main__':
 
     regex_patterns = json.loads(read_data_file('regex_types.json'))
     pattern_data = random.choice(list(regex_patterns.items()))
-    name: str = pattern_data[0]
+    name = pattern_data[0]
     valid_pattern = pattern_data[1]['valid']
-    valid_strs: list[str] = pattern_data[1]['valid_strs']
-    invalid_strs: list[str] = pattern_data[1]['invalid_strs']
+    valid_strs = pattern_data[1]['valid_strs']
+    invalid_strs = pattern_data[1]['invalid_strs']
 
     # randomly select a pattern object
     pattern_set = RegexTestSet(name, valid_strs, invalid_strs)
 
     # give initial prompt
     print(initial_prompt)
-    print(f"Give a regular expression to match {name.lower()}s")
-    print(f"Examples of valid {name.lower()}s:")
+    print("Give a regular expression to match {}s".format(name.lower()))
+    print("Examples of valid {}s:".format(name.lower()))
     for valid_str in pattern_set.valid_strings:
         print(valid_str)
     
-    print(f"Examples of invalid {name.lower()}s:")
+    print("Examples of invalid {}s:".format(name.lower()))
     for invalid_str in pattern_set.invalid_strings:
         print(invalid_str)
-    
 
     # continue looping until an answer is satisfactory or the user runs out of retries
     while retries >= 1 and not pattern_set.test_pattern(guess):
-        guess = input(f"Enter your guess. You have {retries} tries left:\n")
+        guess = input("Enter your guess. You have {} tries left:\n".format(retries))
         try:
             old_guess = guess
             guess = str(guess)
@@ -90,10 +88,12 @@ if __name__ == '__main__':
             guess = old_guess
 
         if pattern_set.test_pattern(guess):
-            print(f"Congratulations! Your guess of {guess} was correct!")
-        else:
-            print(f"{guess} is not correct.")
+            print("Congratulations! Your guess of {} was correct!".format(guess))
+        elif guess:
+            print("{} is not correct.".format(guess))
             retries -= 1
-    
+
     if retries == 0 and not pattern_set.test_pattern(guess):
-        print(f"A correct answer was {valid_pattern}")
+        print("A correct answer was {}".format(valid_pattern))
+
+    exit(1)
