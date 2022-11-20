@@ -35,3 +35,13 @@ declare -i diff=2
 declare -i powerUp
 declare -i currLvl=0
 declare -i maxLvl=3
+
+#compile files and set premmissions
+
+#make
+
+# chmod u+x level1/rising_acid.py
+# chmod u+x level2/puzzle2x
+# chmod u+x level3/puzzle3x
+# chomd u+x level4/puzzle4x
+# chomd u+x level5/regex_challenge.py

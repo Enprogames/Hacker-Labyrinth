@@ -9,25 +9,25 @@ case $1 in
     #premissions need to be set during the init so the levels can be called
 
     1)
-        ./level1/rising_acid.py;;
+        ./level_manager/level1/rising_acid.py;;
 
     2)
-        ./level2/puzzle2x;;
+        ./level_manager/level2/puzzle2x;;
     
     3) 
         echo "Puzzle not complete";;
 
     4)
 
-        ./level4/puzzle4x;;
+        ./level_manager/level4/puzzle4x;;
     5)
 
-        ./level5/regex_challange.py;;
+        ./level_manager/level5/regex_challenge.py;;
 
 esac
 
 # this will work to get the path choice return, but needs to be stored in a local variable 
 
-# ./path_choice/pathChoicex
+./level_manager/path_choice/pathChoicex
 
-# echo "the power up recived was " $?
+echo "the power up recived was " $?

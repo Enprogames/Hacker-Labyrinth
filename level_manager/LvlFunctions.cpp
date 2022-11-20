@@ -40,7 +40,7 @@ int lvlMan::selectRandomLvl()
 
 void lvlMan::puzzleCall(int lvl)
 {
-  string lvlCall = "./startEndLvl.sh " + to_string(lvl);
+  string lvlCall = "./level_manager/startEndLvl.sh " + to_string(lvl);
   sleep(2);
   system(lvlCall.c_str());
 }
