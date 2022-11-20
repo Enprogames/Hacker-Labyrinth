@@ -1,70 +1,46 @@
 #include "LvlManager.h"
-#include <cctype>
 #include <iostream>
-#include <iterator>
-#include <random>
-#include <string>
-#include <vector>
+#include <experimental/algorithm>
 #include <unistd.h>
-using namespace std;
 
-// float Time;
-// int GameOver = 0;
-// int numLvl, currLvl;
-// std::vector<int> Puzzle = {1, 2, 3, 4, 5};
+  using namespace std;
 
-// lvlMan::lvlMan(){}
-// lvlMan::~lvlMan(){}
-
-int lvlMan::pathChoice() {
-  int lvlUp = system("cd level_manager/path_choice/; ./pathChoicex");
-  return lvlUp;
-}
-
-void lvlMan::puzzleCall(int Lvl) {
-  switch (Lvl) {
-  case 1:
-    system("clear");
-    system("python3 level_manager/level1/rising_acid.py");
-    break;
-  case 2:
-    system("clear");
-    system(".level_manager/level2/puzzle2x");
-    break;
-  case 3:
-    system("clear");
-    cout << "The puzzle DECRYPT_KEEPER is not yet completed" << endl;
-    sleep(3);
-    // system("./level3/decryptx");
-    break;
-  case 4:
-    system("clear");
-    cout << "The puzzle CIPHER_ESCAPE is not yet completed" << endl;
-    sleep(3);
-    // system("./level4/cipherx");
-    break;
-  case 5:
-    system("clear");
-    cout << "The puzzle REGEX_CHALLENGE is not yet completed" << endl;
-    sleep(3);
-    // system("python3 level5/regex_challenge.py");
-    break;
-  default: // Optional
-    cout << "No puzzle found";
+lvlMan::lvlMan(int numLvls) // Custom game constructor 
+{
+  for (int i = 1; i < numLvls; i++) // Create the list of levels from given variable
+  {
+    Puzzle.push_back(i);
   }
 
+  gameSize = Puzzle.size();
 }
 
-template <typename Iterator, typename Random>
-Iterator lvlMan::select_randomly(Iterator start, Iterator end, Random &g) {
-  std::uniform_int_distribution<> dis(0, std::distance(start, end) - 1);
-  std::advance(start, dis(g));
-  return start;
+lvlMan::lvlMan() // Default game constructor
+{
+  Puzzle = {1, 2, 3, 4, 5};
+
+  gameSize = Puzzle.size();
 }
 
-template <typename Iterator>
-Iterator lvlMan::select_randomly(Iterator start, Iterator end) {
-  static std::random_device rd;
-  static std::mt19937 gen(rd());
-  return select_randomly(start, end, gen);
+lvlMan::~lvlMan(){}
+
+int lvlMan::selectRandomLvl()
+{
+  std::vector<int> out;
+  size_t nelems = 1;
+  std::experimental::sample(Puzzle.begin(), Puzzle.end(), std::back_inserter(out), nelems, std::mt19937{std::random_device{}()});
+
+  int rando = out.front();
+
+  // deletes the level from the array after use
+  Puzzle.erase(std::remove(Puzzle.begin(), Puzzle.end(), rando), Puzzle.end());
+
+  return rando;
+}
+
+void lvlMan::puzzleCall(int lvl)
+{
+  string lvlCall = "./startEndLvl.sh " + to_string(lvl);
+  sleep(2);
+  system(lvlCall.c_str());
 }

@@ -5,7 +5,7 @@ CC=g++
 level2=level2/puzzle2.o level2/puzzle2functions.o level2/puzzle2x
 pathChoice=path_choice/path_choice_main.o path_choice/path_choice_functions.o path_choice/pathChoicex
 
-all: LvlManagerx level2/puzzle2x path_choice/pathChoicex
+all: LvlManagerx level2/puzzle2x level4/puzzle4x path_choice/pathChoicex
 
 LvlManagerx: LvlManager.o LvlFunctions.o
 	${CC} LvlManager.o LvlFunctions.o -o $@
@@ -28,8 +28,12 @@ level2/puzzle2.o: level2/fifteenTiles_main.cpp level2/fifteenTiles_header.h
 level2/puzzle2functions.o: level2/fifteenTiles_functions.cpp level2/fifteenTiles_header.h
 	${CC} ${Flag} -c $< -o $@
 
+#level 4 compilation
 
-#Level Choice Compilation
+level4/puzzle4x: level4/CipherEscape.cpp level4/CipherEscape.h
+	${CC} ${Flag} -c $< -o $@
+
+#path choice compilation
 
 path_choice/pathChoicex: path_choice/path_choice_main.o path_choice/path_choice_functions.o
 	${CC} path_choice/path_choice_main.o path_choice/path_choice_functions.o -o $@

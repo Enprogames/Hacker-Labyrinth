@@ -14,7 +14,7 @@ int main ()
 
     cout << "\nYou are faced with two doors, each leading to a unique path" << endl;
     system("clear");
-    system("cat path_choice.txt");
+    system("cat path_choice/path_choice.txt");
 
     cout << endl;
 

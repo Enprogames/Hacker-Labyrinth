@@ -3,31 +3,28 @@
 //#include "LvlManager.cpp"
 
 #include <iostream>
-#include <iterator>
-#include <random>
 #include <vector>
 #include <unistd.h>
-#include <algorithm>
 using namespace std;
 
 class lvlMan {
 private:
-  template <typename Iterator, typename Random>
-  Iterator select_randomly(Iterator start, Iterator end, Random &g);
+
+  int gameSize; 
+  std::vector<int> Puzzle;
+
+  int selectRandomLvl();
+  void puzzleCall(int lvl);
 
 public:
-  float Time;
-  int GameOver = 0;
-  int numLvl = 0; 
-  int currLvl;
-  int lvlUp;
-  // might not need to inlcude this to the header
-  //std::vector<int> Puzzle = {1, 2, 3, 4, 5};
 
-  //lvlMan() {};
-  //~lvlMan() {};
+  lvlMan(int numLvls);
+  lvlMan();
+  ~lvlMan();
 
-  template <typename Iterator> Iterator select_randomly(Iterator start, Iterator end);
-  int pathChoice();
-  void puzzleCall(int Lvl);
+  void pathChoice();
+  void startLvl(int lvl){puzzleCall(lvl);};
+  int getLvl(){return selectRandomLvl();};
+  int getPuzzleSize(){return Puzzle.size();}
+  int getGamesize(){return gameSize;};
 };
