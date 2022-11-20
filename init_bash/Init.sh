@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-
 #This block is to resize the window to desired size
 #wmctrl must be installed
 
@@ -38,10 +37,10 @@ declare -i maxLvl=3
 
 #compile files and set premmissions
 
-#make
+(cd ../level_manager && make)
 
-# chmod u+x level1/rising_acid.py
-# chmod u+x level2/puzzle2x
-# chmod u+x level3/puzzle3x
-# chomd u+x level4/puzzle4x
-# chomd u+x level5/regex_challenge.py
+chmod u+x ../level_manager/level1/rising_acid.py
+chmod u+x ../level_manager/level2/puzzle2x
+# chmod u+x ../level_manager/level3/puzzle3x
+chmod u+x ../level_manager/level4/puzzle4x
+chmod u+x ../level_manager/level5/regex_challenge.py
