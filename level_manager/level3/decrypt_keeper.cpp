@@ -62,12 +62,17 @@ int main() {
     case 't':
       cout << "Transfer last line to textfile" << endl;
       Game.printToFile();
+      Game.messagePrint();
       break;
     case 'v':
     //Is this nessecary or should we call to the vim script?
       cout << "View contents of notePad" << endl;
-      system("cat notePad.txt");
-      cout<< endl <<"Press arrow 'A' or 'D' to continue"<<endl;
+      system("cat ./level_manager/notePad.txt");
+      break;
+    case 'm':
+      system("./level_manager/inGameMenu.sh ");
+      system("clear");
+      Game.messagePrint();
       break;
     default:
       // cout << endl << "null" << endl; // not arrow

@@ -155,7 +155,7 @@ public:
         cin.ignore(256,'\n');
         cin >> wordNum;
       }
-      ofstream fout("notePad.txt", ios::app);
+      ofstream fout("./level_manager/notePad.txt", ios::app);
 
       switch (wordNum) {
       case 1:

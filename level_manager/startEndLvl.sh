@@ -15,7 +15,7 @@ case $1 in
         ./level_manager/level2/puzzle2x;;
     
     3) 
-        echo "Puzzle not complete";;
+        ./level_manager/level3/puzzle3x;;
 
     4)
 
