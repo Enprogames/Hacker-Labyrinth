@@ -28,8 +28,10 @@ level2/puzzle2.o: level2/fifteenTiles_main.cpp level2/fifteenTiles_header.h
 level2/puzzle2functions.o: level2/fifteenTiles_functions.cpp level2/fifteenTiles_header.h
 	${CC} ${Flag} -c $< -o $@
 
+#level 3 compilation
+
 level3/puzzle3x: level3/puzzle3.o
-	${CC} level3/puzzle3.o -o $@
+	${CC} $< -o $@
 
 level3/puzzle3.o: level3/decrypt_keeper.cpp level3/decrypt_keeper.h
 	${CC} ${Flag} -c $< -o $@
@@ -37,7 +39,10 @@ level3/puzzle3.o: level3/decrypt_keeper.cpp level3/decrypt_keeper.h
 
 #level 4 compilation
 
-level4/puzzle4x: level4/CipherEscape.cpp level4/CipherEscape.h
+level4/puzzle4x: level4/puzzle4.o
+	${CC} ${Flag} $< -o $@
+
+level4/puzzle4.o: level4/cipher_escape.cpp level4/cipher_escape.h
 	${CC} ${Flag} -c $< -o $@
 
 #path choice compilation
@@ -53,6 +58,6 @@ path_choice/path_choice_functions.o: path_choice/path_choice_functions.cpp path_
 
 .PHONY: clean
 clean:
-	-rm -rf ${level2} ${pathChoice}
+	-rm -rf ${level2} ${pathChoice} level4/puzzle4x
 
 
