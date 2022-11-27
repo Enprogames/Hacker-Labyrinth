@@ -2,7 +2,7 @@
 
 #include <string>
 
-const int Num_to_ignore = 265;
+const int Num_To_Ignore = 265;
 
 class PowerUps
 {

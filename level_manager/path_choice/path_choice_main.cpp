@@ -8,7 +8,6 @@ using namespace std;
 int main ()
 {
     char choice;
-
     bool valid;
     PowerUps PU;
 
@@ -38,7 +37,7 @@ int main ()
         default:
             cout << "\nError: Invalid choice" << endl;
             cin.clear();
-            cin.ignore(Num_to_ignore, '\n');
+            cin.ignore(Num_To_Ignore, '\n');
             valid = false;
             break;
         }
@@ -74,7 +73,7 @@ int main ()
     cout << endl << "Enter any key to continue" << endl;
     cin >> choice;
     cin.clear();
-    cin.ignore(Num_to_ignore, '\n');
+    cin.ignore(Num_To_Ignore, '\n');
 
     return powerUp;
 }

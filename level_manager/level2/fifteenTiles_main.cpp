@@ -46,6 +46,11 @@ int main()
     system("clear");
     Game.printBoard();
     cout << "Congratulation Player! you have completed this challenge." << endl;
+    
+    int anyChar;
+    cout << endl<<endl << "Enter any key to continue..." << endl;
+    cin >> anyChar;
+    cin.clear();
 
     return 0;
 }

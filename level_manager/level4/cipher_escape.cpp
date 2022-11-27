@@ -1,11 +1,7 @@
 // CipherEscape.cpp
 #include <iostream>
 #include "cipher_escape.h"
-using std::cin;
-using std::cerr;
-using std::cout;
-using std::endl;
-using std::string;
+  using namespace std;
 
 // Usable commands
 const string touch = "touch";
@@ -140,6 +136,9 @@ int main()
   cout << "and slowly swings open. Freedom. Congratulations, you've completed the level!" << endl;
   cout << " " << endl;
 
+  cout << endl << "Enter any key to continue..." << endl;
+  cin >> userInput;
+  cin.clear();
   return 0;
 }
 
@@ -191,5 +190,6 @@ void AnswerCheck(int count, string userInput)
       cin >> userInput;
     }
   }
+
   return;
 }
