@@ -91,7 +91,7 @@ if __name__ == '__main__':
     # continue looping until an answer is satisfactory or the user runs out of retries
     while retries >= 1 and not pattern_set.test_pattern(guess):
         guess = input("Enter your guess or perform some other action: (H) for help and (M) for the ingame menu."
-                      " You have {} tries left:\n".format(retries))
+                      " You have {} tries left:\n".format(retries)).strip()
 
         # user input other than guesses
         if guess.lower() == 'h':
@@ -115,6 +115,8 @@ if __name__ == '__main__':
 
     if retries == 0 and not pattern_set.test_pattern(guess):
         print("A correct answer was {}".format(valid_pattern))
+        input("Press enter to continue")
+        exit(0)
 
     input("Press enter to continue")
     exit(1)

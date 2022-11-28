@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
     # continue looping until an answer is satisfactory or the user runs out of retries
     while retries >= 1 and guess != blocks_set.height:
-        guess = input(f"Enter your guess. You have {retries} tries left. Enter (H) for help and (M) for the ingame menu:\n")
+        guess = input(f"Enter your guess. You have {retries} tries left. Enter (H) for help and (M) for the ingame menu:\n").strip()
         
         # user input other than guesses
         if guess.lower() == 'h':
@@ -121,5 +121,7 @@ if __name__ == '__main__':
 
     if retries == 0 and guess != blocks_set.height:
         print(f"The correct answer was {blocks_set.height}")
+        input("Press enter to continue")
+        exit(0)
 
     input("Press enter to continue")
