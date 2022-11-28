@@ -3,6 +3,28 @@
 import os
 import random
 from pathlib import Path
+import subprocess
+
+
+def read_prompt_file(prompt_file: str) -> str:
+    initial_prompt = ""
+    prompt_file_dir: os.PathLike = None
+    prompt_file_dir = Path(os.path.dirname(os.path.realpath(__file__)))
+    if not Path(prompt_file_dir, prompt_file).exists():
+        raise OSError(f"The file {prompt_file} couldn't be found.")
+    with open(Path(prompt_file_dir, prompt_file), encoding="utf8") as fp:
+        initial_prompt = fp.read()
+
+    return initial_prompt
+
+
+def run_ingame_menu():
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    level_manager_dir = os.path.join(current_dir, '..')
+    ingame_menu_filename = 'inGameMenu.sh'
+    ingame_menu_path = os.path.join(level_manager_dir, ingame_menu_filename)
+
+    subprocess.run(ingame_menu_path)
 
 
 class BlockSet:
@@ -54,18 +76,6 @@ class BlockSet:
         print(output)
 
 
-def read_prompt_file(prompt_file: str) -> str:
-    initial_prompt = ""
-    prompt_file_dir: os.PathLike = None
-    prompt_file_dir = Path(os.path.dirname(os.path.realpath(__file__)))
-    if not Path(prompt_file_dir, prompt_file).exists():
-        raise OSError(f"The file {prompt_file} couldn't be found.")
-    with open(Path(prompt_file_dir, prompt_file), encoding="utf8") as fp:
-        initial_prompt = fp.read()
-
-    return initial_prompt
-
-
 if __name__ == '__main__':
     # setup the game
     retries = 3
@@ -85,11 +95,15 @@ if __name__ == '__main__':
 
     # continue looping until an answer is satisfactory or the user runs out of retries
     while retries >= 1 and guess != blocks_set.height:
-        guess = input(f"Enter your guess. You have {retries} tries left. Enter (H) for help:\n")
+        guess = input(f"Enter your guess. You have {retries} tries left. Enter (H) for help and (M) for the ingame menu:\n")
+        
+        # user input other than guesses
         if guess.lower() == 'h':
             print("""The goal of the game is to stack the blocks in pairs of 2 so that they create a wall of uniform height.
                      The wall is used to block the acid. For example, if you had one block of height 2, and another of
                      height 3, you could combine them to make a stack of height 5.""")
+        elif guess.lower() == 'm':
+            run_ingame_menu()
         else:
             try:
                 old_guess = guess
