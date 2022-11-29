@@ -18,7 +18,7 @@ case $1 in
         ./level_manager/level5/regex_challenge.py;;
 esac
 
-if [$? -eq 1]; then
+if [$? -eq 0]; then
     echo "Level Failed!"
     exit 0
 fi

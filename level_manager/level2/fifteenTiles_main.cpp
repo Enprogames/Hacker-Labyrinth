@@ -29,7 +29,7 @@ long int getTime()
     return t; 
 }
 long int startTime = getTime();
-const int gameDuration = 10;
+const int gameDuration = 300;
 bool timeout;
 // -----------------------------------------
 
@@ -37,20 +37,20 @@ int main()
 {
     int difficulty = 1; // Variable for difficulty of game, assigned by level_manager BASH
     bool gameFinished = false;
-
+    char movement;
     FifteenTiles Game(difficulty);
 
     cout << "\nHello " << getlogin() << endl;
     cout << "\nYou find yourself in a room with a large 4-by-4 grid containing 15 tiles labeled 1-15 in hexadecimal notation, the tiles are scattered in random order..." << endl;
     cout << "\n“You have 5 minutes to arrange the 15 tiles from low to high, begin”" << endl;
 
-
     do
     {
       Game.printMenu();
       Game.printBoard();
 
-      Game.move(getch());
+      movement = getch();
+      Game.move(movement);
 
       gameFinished = Game.complete();
 
