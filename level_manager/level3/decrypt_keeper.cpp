@@ -68,6 +68,7 @@ int main() {
     //Is this nessecary or should we call to the vim script?
       cout << "View contents of notePad" << endl;
       system("cat ./level_manager/notePad.txt");
+      cout<<endl;
       break;
     case 'm':
       system("./level_manager/inGameMenu.sh ");

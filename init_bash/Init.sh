@@ -35,7 +35,7 @@ declare -i powerUp
 declare -i currLvl=0
 declare -i maxLvl=3
 
-#compile files and set premmissions
+#compile files and set permmissions
 
 touch ../level_manager/path_choice/path_choice_main.cpp
 touch ../level_manager/path_choice/path_choice_functions.cpp
@@ -53,3 +53,23 @@ chmod u+x ../level_manager/level2/puzzle2x
 chmod u+x ../level_manager/level3/puzzle3x
 chmod u+x ../level_manager/level4/puzzle4x
 chmod u+x ../level_manager/level5/regex_challenge.py
+
+#add permissions to scripts
+if ! [ -x ../start_menu/mainMenu.sh ]; then
+	chmod u+x ../start_menu/mainMenu.sh
+fi
+if ! [ -x ../level_manager/inGameMenu.sh ]; then
+	chmod u+x ../level_manager/inGameMenu.sh
+fi
+if ! [ -x ../level_manager/startEndLvl.sh ]; then
+	chmod u+x ../level_manager/startEndLvl.sh
+fi
+if ! [ -x ../level_manager/inGameMenu.sh ]; then
+	chmod u+x ../level_manager/inGameMenu.sh
+fi
+
+#Reset the text in notePad
+> ../level_manager/notePad.txt
+echo "                    HACKER'S LABYRINTH NOTEPAD " >> ../level_manager/notePad.txt
+echo "" >> ../level_manager/notePad.txt
+echo "This notepad uses the same commands as VIM. Use ESC + i to insert, ESC + wq to write and quit."
