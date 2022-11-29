@@ -18,13 +18,13 @@ case $1 in
         ./level_manager/level5/regex_challenge.py;;
 esac
 
-if [$? -eq 0]; then
-    echo "Level Failed!"
-    exit 0
+if [ $? -eq 0 ]; then
+    echo "Level Failed! Game Over"
+    sleep 3
+    . Main.sh
+else
+    ./level_manager/path_choice/pathChoicex
 fi
 
-# this will work to get the path choice return, but needs to be stored in a local variable 
 
-./level_manager/path_choice/pathChoicex
 
-echo "the power up recived was " $?
