@@ -36,6 +36,11 @@ declare -i currLvl=0
 declare -i maxLvl=3
 
 #compile files and set permmissions
+# clear code file from previous sessions
+
+> ../level_manager/final_code.txt
+
+#compile files and set premmissions
 
 touch ../level_manager/path_choice/path_choice_main.cpp
 touch ../level_manager/path_choice/path_choice_functions.cpp

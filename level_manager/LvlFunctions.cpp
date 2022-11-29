@@ -2,6 +2,8 @@
 #include <iostream>
 #include <experimental/algorithm>
 #include <unistd.h>
+#include <stdlib.h>
+#include <fstream>
 
   using namespace std;
 
@@ -26,21 +28,39 @@ lvlMan::~lvlMan(){}
 
 int lvlMan::selectRandomLvl()
 {
-  std::vector<int> out;
+  vector<int> out;
   size_t nelems = 1;
-  std::experimental::sample(Puzzle.begin(), Puzzle.end(), std::back_inserter(out), nelems, std::mt19937{std::random_device{}()});
+  experimental::sample(Puzzle.begin(), Puzzle.end(), back_inserter(out), nelems, std::mt19937{std::random_device{}()});
 
   int rando = out.front();
 
-  // deletes the level from the array after use
-  Puzzle.erase(std::remove(Puzzle.begin(), Puzzle.end(), rando), Puzzle.end());
+  // deletes the level from the vector
+  Puzzle.erase(remove(Puzzle.begin(), Puzzle.end(), rando), Puzzle.end());
 
   return rando;
 }
 
-void lvlMan::puzzleCall(int lvl)
+
+bool lvlMan::puzzleCall(int lvl)
 {
   string lvlCall = "./level_manager/startEndLvl.sh " + to_string(lvl);
   sleep(2);
-  system(lvlCall.c_str());
+  int exitStatus = system(lvlCall.c_str());
+
+  if (exitStatus == 0)
+  {
+    return false;
+  }
+
+  return true;
+}
+
+void lvlMan::getExitCode()
+{
+  srand(time(NULL)); // set random seed 
+  int codeNum = (rand() % 10); // add random number from 0 - 9 to ExitCode
+  ofstream exitCodeFile;
+  exitCodeFile.open("final_code.txt", ios_base::app);
+  exitCodeFile << codeNum;
+  exitCodeFile.close();
 }
