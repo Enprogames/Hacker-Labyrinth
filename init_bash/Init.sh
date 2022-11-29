@@ -35,6 +35,10 @@ declare -i powerUp
 declare -i currLvl=0
 declare -i maxLvl=3
 
+# clear code file from previous sessions
+
+> ../level_manager/final_code.txt
+
 #compile files and set premmissions
 
 touch ../level_manager/path_choice/path_choice_main.cpp

@@ -14,7 +14,8 @@ private:
   std::vector<int> Puzzle;
 
   int selectRandomLvl();
-  void puzzleCall(int lvl);
+  int selectRandomExitCodeNum();
+  bool puzzleCall(int lvl);
 
 public:
 
@@ -23,8 +24,9 @@ public:
   ~lvlMan();
 
   void pathChoice();
-  void startLvl(int lvl){puzzleCall(lvl);};
+  bool startLvl(int lvl){return puzzleCall(lvl);};
   int getLvl(){return selectRandomLvl();};
+  void getExitCode();
   int getPuzzleSize(){return Puzzle.size();}
   int getGamesize(){return gameSize;};
 };

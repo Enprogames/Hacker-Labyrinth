@@ -4,13 +4,12 @@
 
 int main() {
 
-  lvlMan G(6);
+  int numLvls = 6;
+  lvlMan G(numLvls);
 
   bool gameOver = false;
-  
   while (!gameOver) 
   {
-
     // debug print, not necessary
     cout << G.getPuzzleSize() << " Puzzles Left!" << endl;
 
@@ -20,9 +19,15 @@ int main() {
     }
 
     // call to the random level
-    G.startLvl(G.getLvl());
-  }
+    if (!G.startLvl(G.getLvl()))
+    {
+      // Call Game Over
+      cout << "Game Over! \n";
+      return 0;
+    }
 
-  cout << "Game Over! \n";
+    G.getExitCode();
+  }
+  
   return 0;
 }

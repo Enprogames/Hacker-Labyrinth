@@ -136,9 +136,6 @@ int main()
   cout << "and slowly swings open. Freedom. Congratulations, you've completed the level!" << endl;
   cout << " " << endl;
 
-  cout << endl << "Enter any key to continue..." << endl;
-  cin >> userInput;
-  cin.clear();
   return 0;
 }
 
