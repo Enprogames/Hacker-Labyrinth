@@ -3,12 +3,26 @@
 #include <stdio.h>
 #include <string>
 #include <termios.h>
+#include <ctime>
 #include <unistd.h>
 //#include <ncurses>
 
 #include "decrypt_keeper.h"
 #include <fstream>
 using namespace std;
+
+// Time limit ------------------------------
+long int getTime();
+long int getTime()
+{
+    time_t t = std::time(0);
+    return t; 
+}
+long int startTime = getTime();
+const int gameDuration = 10;
+// -----------------------------------------
+
+
 
 // Bypassing including getch from a library, incase ncurses.h is not installed
 int getch(void) {
@@ -77,6 +91,13 @@ int main() {
     default:
       // cout << endl << "null" << endl; // not arrow
       break;
+    }
+
+    if (getTime() >= startTime + gameDuration)
+    {
+        cout << "Time limit exceeded, You die!!" << endl;
+        system("sleep 2s");
+        return 0;
     }
   }
 
