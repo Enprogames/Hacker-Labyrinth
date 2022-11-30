@@ -27,6 +27,43 @@ def run_ingame_menu():
     subprocess.run(ingame_menu_path)
 
 
+def mainloop():
+    global guess, retries
+    # continue looping until an answer is satisfactory or the user runs out of retries
+    while retries >= 1 and guess != blocks_set.height:
+        guess = input(f"Enter your guess. You have {retries} tries left. Enter (H) for help and (M) for the ingame menu:\n").strip()
+        
+        # user input other than guesses
+        if guess.lower() == 'h':
+            print("""The goal of the game is to stack the blocks in pairs of 2 so that they create a wall of uniform height.
+                     The wall is used to block the acid. For example, if you had one block of height 2, and another of
+                     height 3, you could combine them to make a stack of height 5.""")
+        elif guess.lower() == 'm':
+            run_ingame_menu()
+        else:
+            try:
+                old_guess = guess
+                guess = int(guess)
+            except ValueError:
+                guess = old_guess
+
+            if guess == blocks_set.height:
+                print(f"Congratulations! Your guess of {guess} was correct!")
+                blocks_set.print_completed_wall()
+                print("You build a wall and it successfully blocks the acid.")
+            else:
+                print(f"{guess} is not correct.")
+                retries -= 1
+
+    if retries == 0 and guess != blocks_set.height:
+        print(f"The correct answer was {blocks_set.height}")
+        input("Press enter to continue")
+        exit(0)
+
+    input("Press enter to continue")
+    exit(1)
+
+
 class BlockSet:
     def __init__(self):
         self.blocks = []
@@ -93,35 +130,4 @@ if __name__ == '__main__':
     blocks_set.print_blocks()
     print("How high must you stack the blocks?")
 
-    # continue looping until an answer is satisfactory or the user runs out of retries
-    while retries >= 1 and guess != blocks_set.height:
-        guess = input(f"Enter your guess. You have {retries} tries left. Enter (H) for help and (M) for the ingame menu:\n").strip()
-        
-        # user input other than guesses
-        if guess.lower() == 'h':
-            print("""The goal of the game is to stack the blocks in pairs of 2 so that they create a wall of uniform height.
-                     The wall is used to block the acid. For example, if you had one block of height 2, and another of
-                     height 3, you could combine them to make a stack of height 5.""")
-        elif guess.lower() == 'm':
-            run_ingame_menu()
-        else:
-            try:
-                old_guess = guess
-                guess = int(guess)
-            except ValueError:
-                guess = old_guess
-
-            if guess == blocks_set.height:
-                print(f"Congratulations! Your guess of {guess} was correct!")
-                blocks_set.print_completed_wall()
-                print("You build a wall and it successfully blocks the acid.")
-            else:
-                print(f"{guess} is not correct.")
-                retries -= 1
-
-    if retries == 0 and guess != blocks_set.height:
-        print(f"The correct answer was {blocks_set.height}")
-        input("Press enter to continue")
-        exit(0)
-
-    input("Press enter to continue")
+    mainloop()
