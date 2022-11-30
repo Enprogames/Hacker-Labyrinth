@@ -67,3 +67,7 @@ fi
 if ! [ -x ../level_manager/level5/regex_challenge.py ]; then
 	chmod u+x ../level_manager/level5/regex_challenge.py
 fi
+
+if ! [ -x ../level_manager/game_over/game_over.sh ]; then
+	chmod u+x ../level_manager/game_over/game_over.sh
+fi
