@@ -18,13 +18,17 @@ case $1 in
         ./level_manager/level5/regex_challenge.py;;
 esac
 
-if [ $? -eq 1 ]; then
+if [ $? -eq 0 ]; then
     echo "Level Failed! Game Over"
     sleep 2
-    ./game_over/game_over.sh
+    ./level_manager/game_over/game_over.sh
+elif [ $? -eq 2 ]; then
+    echo "Level Failed! Game Over"
+    sleep 2
+    ./level_manager/game_over/game_over.sh
+else
+    ./level_manager/path_choice/pathChoicex
 fi
-
-./level_manager/path_choice/pathChoicex
 
 
 
