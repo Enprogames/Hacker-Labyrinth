@@ -87,8 +87,8 @@ int main() {
     case 'v':
     //Is this nessecary or should we call to the vim script?
       cout << "View contents of notePad" << endl;
-      system("cat ./level_manager/notePad.txt");
-      cout<<endl;
+      system("cat level_manager/notePad.txt");
+      cout<<" " <<endl;
       break;
     case 'm':
       system("./level_manager/inGameMenu.sh ");
@@ -96,7 +96,6 @@ int main() {
       Game.messagePrint();
       break;
     default:
-      // cout << endl << "null" << endl; // not arrow
       break;
     }
   }

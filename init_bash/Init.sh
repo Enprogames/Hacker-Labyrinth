@@ -1,12 +1,5 @@
 #!/usr/bin/bash
 
-#This block is to resize the window to desired size
-#wmctrl must be installed
-
-#wid=(window id)
-#wh=(size of height)
-#ww=(size of width)
-#wmctrl -i -r $wid -e  0,0,0,$ww,$wh
 
 #To set the color and maybe size of the terminal text
 #https://unix.stackexchange.com/questions/64268/is-there-a-way-to-temporarily-change-the-terminal-colour
@@ -66,7 +59,7 @@ if ! [ -x ../level_manager/inGameMenu.sh ]; then
 fi
 
 #Reset the text in notePad
-> ../level_manager/notePad.txt
+" " > ../level_manager/notePad.txt
 echo "                    HACKER'S LABYRINTH NOTEPAD " >> ../level_manager/notePad.txt
 echo "" >> ../level_manager/notePad.txt
 echo "This notepad uses the same commands as VIM. Use ESC + i to insert, ESC + wq to write and quit."

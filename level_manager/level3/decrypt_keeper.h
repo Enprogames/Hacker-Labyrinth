@@ -28,21 +28,30 @@ public:
 
   char Filler1 = ' ';
   char Filler2 = '-';
-  //ofstream fin, fout;
+  // ofstream fin, fout;
 
   void Text() {
     std::string Username = getlogin();
-    cout << "Hello " << Username << endl;
-    cout << "You will need to decrypt a message that will give you an "
-            "equation, ";
-    cout << "the result of this is the code you need to make it out of here."
+    cout << "                   Hello " << Username << endl;
+    cout
+        << "You will need to decrypt a scrambled message that will give you an "
+           "equation, ";
+    cout << "the result is the code you need exit this room. Fail to give the "
+            "proper code and you die!"
          << endl;
+    cout << endl;
+    cout << endl;
     cout << "Each word in the message has a different cypher key." << endl;
-    cout << "Use the keys 'A' to decrease the Cypher key and 'D' to increase "
-            "it."<<endl;
-    cout << "To finish the level by entering the 3 digit code press 'E' then Enter" << endl;
-    cout << "To transfer your decrypted word to the notePad press 'T' then enter the wordNumber you wish to log" << endl;
-    cout << "To view the notePad, press 'V'" << endl;
+    cout << "You are given a set of tools, Use these keys to access them: "
+         << endl;
+    cout << endl;
+
+    cout << "To Decrease the Cypher key                     'A'  " << endl;
+    cout << "To Increase the Cypher key                     'D'  " << endl;
+    cout << "To Enter the final 3 digit code                'E'  " << endl;
+    cout << "To Transfer a decrypted word to the notePad    'T'  " << endl;
+    cout << "To View the content of the notePad             'V'  " << endl;
+    cout << endl;
     cout << "Here is the encrypted message: " << endl;
     cout << endl;
     cout << endl;
@@ -146,71 +155,72 @@ public:
     string mess2 = "Word2 is: ";
     string mess3 = "Word3 is: ";
     string mess4 = "Word4 is: ";
-    while(c == 0) {
-      cout << "Which word do you want stored to the notePad? (1, 2, 3, 4)" << endl;
+    while (c == 0) {
+      cout << "Which word do you want stored to the notePad? (1, 2, 3, 4)"
+           << endl;
       cin >> wordNum;
-      while(std::cin.fail()) {
+      while (std::cin.fail()) {
         cout << "Error, not an integer" << endl;
         cin.clear();
-        cin.ignore(256,'\n');
+        cin.ignore(256, '\n');
         cin >> wordNum;
       }
-      ofstream fout("./level_manager/notePad.txt", ios::app);
+      ofstream fout("level_manager/notePad.txt", ios::app);
 
       switch (wordNum) {
       case 1:
-      fout << "\r\n";
-      cout<<"The word1: ";
+        fout << "\r\n";
+        cout << "The word1: ";
         fout << mess1;
 
         for (int i = 0; i < 8; ++i) {
           fout << Word1[i];
           cout << Word1[i];
         }
-        cout<<" has been added to the notepad."<<endl;
+        cout << " has been added to the notepad." << endl;
         fout.close();
         c = 1;
         break;
       case 2:
-      fout << "\r\n";
-      cout<<"The word2: ";
-      fout << mess2;
+        fout << "\r\n";
+        cout << "The word2: ";
+        fout << mess2;
         for (int i = 0; i < 6; ++i) {
           fout << Word2[i];
           cout << Word2[i];
         }
-        
+
         fout << "-";
         cout << "-";
         for (int i = 0; i < 5; ++i) {
           fout << Word3[i];
           cout << Word3[i];
         }
-        cout<<" has been added to the notepad."<<endl;
+        cout << " has been added to the notepad." << endl;
         fout.close();
         c = 1;
         break;
       case 3:
-      fout << "\r\n";
-      cout<<"The word3: ";
-      fout << mess3;
+        fout << "\r\n";
+        cout << "The word3: ";
+        fout << mess3;
         for (int i = 0; i < 4; ++i) {
           fout << Word4[i];
           cout << Word4[i];
         }
-        cout<<" has been added to the notepad."<<endl;
+        cout << " has been added to the notepad." << endl;
         fout.close();
         c = 1;
         break;
       case 4:
-      fout << "\r\n";
-      cout<<"The word4: ";
-      fout << mess4;
+        fout << "\r\n";
+        cout << "The word4: ";
+        fout << mess4;
         for (int i = 0; i < 8; ++i) {
           fout << Word5[i];
           cout << Word5[i];
         }
-        cout<<" has been added to the notepad."<<endl;
+        cout << " has been added to the notepad." << endl;
         c = 1;
         fout.close();
         break;
@@ -218,7 +228,8 @@ public:
         cout << "You must enter a Number from 1 to 4" << endl;
         break;
       }
-  }
-  cout<<"Press arrow 'A' or 'D' to continue, or 'E' to solve the puzzle"<<endl;
+    }
+    cout << "Press arrow 'A' or 'D' to continue, or 'E' to solve the puzzle"
+         << endl;
   }
 };
