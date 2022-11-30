@@ -34,11 +34,8 @@ declare -i powerUp
 declare -i currLvl=0
 declare -i maxLvl=3
 
-<<<<<<< HEAD
 #compile files and set permmissions
 # clear code file from previous sessions
-=======
->>>>>>> 217f36ff436351d52a69484efb6dacf1971453ce
 
 # touch all files in level manager subtree
 # add -print to show files being touched
@@ -47,7 +44,6 @@ find ../level_manager -exec touch {} \;
 # compile files
 (cd ../level_manager && make)
 
-<<<<<<< HEAD
 chmod u+x ../level_manager/LvlManagerx
 chmod u+x ../level_manager/level1/rising_acid.py
 chmod u+x ../level_manager/level2/puzzle2x
@@ -74,7 +70,6 @@ fi
 echo "                    HACKER'S LABYRINTH NOTEPAD " >> ../level_manager/notePad.txt
 echo "" >> ../level_manager/notePad.txt
 echo "This notepad uses the same commands as VIM. Use ESC + i to insert, ESC + wq to write and quit."
-=======
 # set premissions
 
 if ! [ -x ../level_manager/LvlManagerx ]; then
@@ -104,4 +99,3 @@ fi
 if ! [ -x ../level_manager/game_over/game_over.sh ]; then
 	chmod u+x ../level_manager/game_over/game_over.sh
 fi
->>>>>>> 217f36ff436351d52a69484efb6dacf1971453ce
