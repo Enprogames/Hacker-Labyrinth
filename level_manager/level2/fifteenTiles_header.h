@@ -1,3 +1,6 @@
+// FIFTEEN TILES HEADER
+// By Jasper Charlinski
+
 #pragma once
 #include <iostream>
 
@@ -29,8 +32,7 @@ class FifteenTiles {
         void swap(char *a, char *b);
         void Move(char movement);
         bool solvable();
-
-
+        
     public:
 
     FifteenTiles(int difficulty);

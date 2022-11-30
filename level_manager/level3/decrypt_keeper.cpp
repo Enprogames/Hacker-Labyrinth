@@ -11,18 +11,13 @@
 #include <fstream>
 using namespace std;
 
-// Time limit ------------------------------
+// Get current system time in seconds
 long int getTime();
 long int getTime()
 {
     time_t t = std::time(0);
     return t; 
 }
-long int startTime = getTime();
-const int gameDuration = 10;
-// -----------------------------------------
-
-
 
 // Bypassing including getch from a library, incase ncurses.h is not installed
 int getch(void) {
@@ -38,14 +33,25 @@ int getch(void) {
 }
 
 int main() {
-  decryptKeeper Game;
 
+  const long int startTime = getTime(); // get time of when level is started
+  const int gameDuration = 300; // length of time limit in seconds
+
+  decryptKeeper Game;
   int c = 0;
   int key;
   fstream fin, fout;
   Game.Text();
   cout << "(Press A or D to get started)" << endl;
   while (1) {
+
+    if (getTime() >= startTime + gameDuration)
+    {
+      cout << "Time limit exceeded, You die!!" << endl;
+      system("sleep 2s");
+      return 0;
+    }
+
     c = 0;
 
     switch ((c = getch())) {
@@ -92,13 +98,6 @@ int main() {
     default:
       // cout << endl << "null" << endl; // not arrow
       break;
-    }
-
-    if (getTime() >= startTime + gameDuration)
-    {
-        cout << "Time limit exceeded, You die!!" << endl;
-        system("sleep 2s");
-        return 0;
     }
   }
 
