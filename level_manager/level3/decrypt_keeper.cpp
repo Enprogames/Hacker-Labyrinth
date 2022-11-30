@@ -11,17 +11,13 @@
 #include <fstream>
 using namespace std;
 
-// Time limit ------------------------------
+// Get current system time in seconds
 long int getTime();
 long int getTime()
 {
     time_t t = std::time(0);
     return t; 
 }
-long int startTime = getTime();
-const int gameDuration = 300;
-// -----------------------------------------
-
 
 // Bypassing including getch from a library, incase ncurses.h is not installed
 int getch(void) {
@@ -37,8 +33,11 @@ int getch(void) {
 }
 
 int main() {
-  decryptKeeper Game;
 
+  const long int startTime = getTime(); // get time of when level is started
+  const int gameDuration = 300; // length of time limit in seconds
+
+  decryptKeeper Game;
   int c = 0;
   int key;
   fstream fin, fout;
