@@ -94,6 +94,7 @@ int main() {
       system("./level_manager/inGameMenu.sh ");
       system("clear");
       Game.messagePrint();
+      cout << endl;
       break;
     default:
       break;
