@@ -21,10 +21,11 @@ esac
 if [ $? -eq 0 ]; then
     echo "Level Failed! Game Over"
     sleep 3
-    . Main.sh
-else
-    ./level_manager/path_choice/pathChoicex
+    # call game over
 fi
+
+./level_manager/path_choice/pathChoicex
+
 
 
 
