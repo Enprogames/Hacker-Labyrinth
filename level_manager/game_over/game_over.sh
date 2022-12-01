@@ -1,3 +1,5 @@
+#! /bin/bash
+
 clear
 
 cat ./level_manager/game_over/GameOverScreen.txt
