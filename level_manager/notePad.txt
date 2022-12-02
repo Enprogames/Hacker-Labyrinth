@@ -1,1 +1,7 @@
+                    HACKER'S LABYRINTH NOTEPAD 
 
+
+Word1 is: MULTIPLY
+Word2 is: THIRTY-SEVEN
+Word3 is: WITH
+Word4 is: EIGHTEEN

@@ -37,12 +37,6 @@ find ../level_manager -exec touch {} \;
 # compile files
 (cd ../level_manager && make)
 
-chmod u+x ../level_manager/LvlManagerx
-chmod u+x ../level_manager/level1/rising_acid.py
-chmod u+x ../level_manager/level2/puzzle2x
-chmod u+x ../level_manager/level3/puzzle3x
-chmod u+x ../level_manager/level4/puzzle4x
-chmod u+x ../level_manager/level5/regex_challenge.py
 
 #add permissions to scripts
 if ! [ -x ../start_menu/mainMenu.sh ]; then
@@ -58,12 +52,8 @@ if ! [ -x ../level_manager/inGameMenu.sh ]; then
 	chmod u+x ../level_manager/inGameMenu.sh
 fi
 
-#Reset the text in notePad
-" " > ../level_manager/notePad.txt
-echo "                    HACKER'S LABYRINTH NOTEPAD " >> ../level_manager/notePad.txt
-echo "" >> ../level_manager/notePad.txt
-echo "This notepad uses the same commands as VIM. Use ESC + i to insert, ESC + wq to write and quit."
-# set premissions
+
+#set permissions 
 
 if ! [ -x ../level_manager/LvlManagerx ]; then
 	chmod u+x ../level_manager/LvlManagerx
