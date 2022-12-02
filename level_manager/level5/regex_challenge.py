@@ -4,7 +4,7 @@ import os
 import re
 import json
 import random
-import subprocess
+import signal
 
 
 def read_data_file(file_name):
@@ -64,6 +64,11 @@ def mainloop():
     exit(1)
 
 
+def out_of_time_exit(sig_num, stack_frame):
+    print("The game ended because you ran out of time")
+    exit(0)
+
+
 class RegexTestSet:
     def __init__(self, name, valid_strings=[],
                  invalid_strings=[]):
@@ -99,6 +104,7 @@ class RegexTestSet:
 
 if __name__ == '__main__':
     # setup the game
+    timeout = 300  # exit the game after the timeout is exceeded (in seconds)
     retries = 3
     guess = None
     initial_prompt = read_data_file('initial_prompt.txt')
@@ -123,5 +129,8 @@ if __name__ == '__main__':
     print("Examples of invalid {}s:".format(name.lower()))
     for invalid_str in pattern_set.invalid_strings:
         print(invalid_str)
+
+    signal.signal(signal.SIGALRM, out_of_time_exit)
+    signal.alarm(timeout)
 
     mainloop()

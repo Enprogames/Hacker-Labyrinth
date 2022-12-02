@@ -3,7 +3,7 @@
 import os
 import random
 from pathlib import Path
-import subprocess
+import signal
 
 
 def read_prompt_file(prompt_file: str) -> str:
@@ -64,6 +64,11 @@ def mainloop():
     exit(1)
 
 
+def out_of_time_exit(sig_num, stack_frame):
+    print("The game ended because you ran out of time")
+    exit(0)
+
+
 class BlockSet:
     def __init__(self):
         self.blocks = []
@@ -115,6 +120,7 @@ class BlockSet:
 
 if __name__ == '__main__':
     # setup the game
+    timeout = 300  # exit the game after the timeout is exceeded (in seconds)
     retries = 3
     guess = None
     
@@ -129,5 +135,8 @@ if __name__ == '__main__':
     print("You arrange the blocks and find that they have the following heights:\n")
     blocks_set.print_blocks()
     print("How high must you stack the blocks?")
+
+    signal.signal(signal.SIGALRM, out_of_time_exit)
+    signal.alarm(timeout)
 
     mainloop()
