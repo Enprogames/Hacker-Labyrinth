@@ -8,6 +8,9 @@
 #   changing terminal text color
 #   compiling necessary files
 #   setting executable permissions for user on necessary executables
+#	resets notepad file and final level exit code file
+
+# MUST BE RUN FROM HACKER-LABYRINTH DIR NOT init_bash
 
 
 #To set the color and maybe size of the terminal text
@@ -40,58 +43,65 @@ declare -i maxLvl=3
 
 # touch all files in level manager subtree
 # add -print to show files being touched
-find ../level_manager -exec touch {} \;
+find level_manager -exec touch {} \;
 
 # compile files
-(cd ../level_manager && make)
+(cd level_manager && make)
 
 
 # set permissions for game manager scripts
 
-if ! [ -x ../start_menu/mainMenu.sh ]; then
-	chmod u+x ../start_menu/mainMenu.sh
+if ! [ -x start_menu/mainMenu.sh ]; then
+	chmod u+x start_menu/mainMenu.sh
 fi
 
-if ! [ -x ../level_manager/inGameMenu.sh ]; then
-	chmod u+x ../level_manager/inGameMenu.sh
+if ! [ -x level_manager/inGameMenu.sh ]; then
+	chmod u+x level_manager/inGameMenu.sh
 fi
 
-if ! [ -x ../level_manager/startEndLvl.sh ]; then
-	chmod u+x ../level_manager/startEndLvl.sh
+if ! [ -x level_manager/startEndLvl.sh ]; then
+	chmod u+x level_manager/startEndLvl.sh
 fi
 
-if ! [ -x ../level_manager/inGameMenu.sh ]; then
-	chmod u+x ../level_manager/inGameMenu.sh
+if ! [ -x level_manager/inGameMenu.sh ]; then
+	chmod u+x level_manager/inGameMenu.sh
 fi
 
-if ! [ -x ../level_manager/game_over/game_over.sh ]; then
-	chmod u+x ../level_manager/game_over/game_over.sh
+if ! [ -x level_manager/game_over/game_over.sh ]; then
+	chmod u+x level_manager/game_over/game_over.sh
 fi
 
 # set permissions for level scripts
 
-if ! [ -x ../level_manager/LvlManagerx ]; then
-	chmod u+x ../level_manager/LvlManagerx
+if ! [ -x level_manager/LvlManagerx ]; then
+	chmod u+x level_manager/LvlManagerx
 fi
 
-if ! [ -x ../level_manager/level1/rising_acid.py ]; then
-	chmod u+x ../level_manager/level1/rising_acid.py
+if ! [ -x level_manager/level1/rising_acid.py ]; then
+	chmod u+x level_manager/level1/rising_acid.py
 fi
 
-if ! [ -x ../level_manager/level2/puzzle2x ]; then
-	chmod u+x ../level_manager/level2/puzzle2x
+if ! [ -x level_manager/level2/puzzle2x ]; then
+	chmod u+x level_manager/level2/puzzle2x
 fi
 
-if ! [ -x ../level_manager/level3/puzzle3x ]; then
-	chmod u+x ../level_manager/level3/puzzle3x
+if ! [ -x level_manager/level3/puzzle3x ]; then
+	chmod u+x level_manager/level3/puzzle3x
 fi
 
-if ! [ -x ../level_manager/level4/puzzle4x ]; then
-	chmod u+x ../level_manager/level4/puzzle4x
+if ! [ -x level_manager/level4/puzzle4x ]; then
+	chmod u+x level_manager/level4/puzzle4x
 fi
 
-if ! [ -x ../level_manager/level5/regex_challenge.py ]; then
-	chmod u+x ../level_manager/level5/regex_challenge.py
+if ! [ -x level_manager/level5/regex_challenge.py ]; then
+	chmod u+x level_manager/level5/regex_challenge.py
 fi
 
+#Reset the text in notePad and exit code for final level
 
+truncate -s 0 level_manager/notePad.txt # empty file by setting size in bytes to 0
+truncate -s 0 level_manager/final_code.txt # empty file by setting size in bytes to 0
+
+echo "                    HACKER'S LABYRINTH NOTEPAD " >> level_manager/notePad.txt
+echo -e "\n\n\n\n" >> level_manager/notePad.txt
+# echo "This notepad uses the same commands as VIM. Use ESC + i to insert, ESC + wq to write and quit."
