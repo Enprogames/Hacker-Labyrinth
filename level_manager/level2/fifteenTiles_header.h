@@ -4,6 +4,8 @@
 #pragma once
 #include <iostream>
 
+ using namespace std;
+
 class FifteenTiles {
 
     private:
@@ -42,3 +44,6 @@ class FifteenTiles {
     void move(char m);
     bool complete();
 };
+
+char getch(void);
+void enableBufferedInput();

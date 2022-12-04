@@ -9,6 +9,8 @@
 #include <string>
 #include <iostream>
 #include <cctype>
+#include <termios.h>
+#include <unistd.h>
 #include "fifteenTiles_header.h"
 
 using namespace std;
@@ -54,7 +56,7 @@ FifteenTiles::FifteenTiles(int difficulty)
 
 FifteenTiles::~FifteenTiles()
 {
-
+    enableBufferedInput();
 }
 
 // Private -----------------------------------------------------------------------------------------------------
@@ -279,4 +281,25 @@ void FifteenTiles::printMenu()
 // This function prints the control menu for the game
 {
     cout << endl << "w = Up, s = Down, a = Left, d = Right" << endl;
+}
+
+// Capture characters from standard input without waiting for enter to be pressed
+// By Sebastian, changed a little by me
+char getch(void) 
+{
+  struct termios t;
+  char ch;
+  tcgetattr(STDIN_FILENO, &t);
+  t.c_lflag &= ~(ICANON | ECHO);
+  tcsetattr(STDIN_FILENO, TCSANOW, &t);
+  ch = getchar();
+  return ch;
+}
+
+void enableBufferedInput()
+{
+  struct termios t;
+  tcgetattr(STDIN_FILENO, &t);
+  t.c_lflag |= ICANON; 
+  tcsetattr(STDIN_FILENO, TCSANOW, &t);
 }

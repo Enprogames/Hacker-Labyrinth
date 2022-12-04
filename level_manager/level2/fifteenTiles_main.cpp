@@ -8,27 +8,12 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include <termios.h>
 #include <unistd.h>
 #include <ctime>
 #include "fifteenTiles_header.h"
 
-using namespace std;
+  using namespace std;
 
-// Capture characters from standard input without waiting for enter to be pressed
-// By Sebastian
-char getch(void) 
-{
-  struct termios oldattr, newattr;
-  char ch;
-  tcgetattr(STDIN_FILENO, &oldattr);
-  newattr = oldattr;
-  newattr.c_lflag &= ~(ICANON | ECHO);
-  tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
-  ch = getchar();
-  tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);
-  return ch;
-}
 
 // Get current system time in seconds
 long int getTime();
@@ -88,10 +73,9 @@ int main()
   Game.printBoard();
   cout << "Congratulation Player! you have completed this challenge." << endl;
   
-  int anyChar;
+  char anyChar;
   cout << endl<<endl << "Enter any key to continue..." << endl;
   cin >> anyChar;
-  cin.clear();
 
   return 1;
 }
