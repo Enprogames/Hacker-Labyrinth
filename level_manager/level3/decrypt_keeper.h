@@ -235,7 +235,10 @@ public:
     cout << "Press arrow 'A' or 'D' to continue, or 'E' to solve the puzzle"
          << endl;
   }
-  
+
+
+  // Idea from: https://cplusplus.com/forum/general/29137/
+
   void disableBufferedInput() 
   // disables buffered input allowing program to get input without user having to hit enter
   {

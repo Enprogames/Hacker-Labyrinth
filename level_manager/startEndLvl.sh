@@ -25,10 +25,6 @@ if [ $? -eq 0 ]; then
     echo "Level Failed! Game Over"
     sleep 2
     ./level_manager/game_over/game_over.sh
-elif [ $? -eq 2 ]; then
-    echo "Level Failed! Game Over"
-    sleep 2
-    ./level_manager/game_over/game_over.sh
 else
     ./level_manager/path_choice/pathChoicex
 fi

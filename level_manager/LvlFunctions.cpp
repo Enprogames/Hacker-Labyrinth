@@ -46,11 +46,6 @@ bool lvlMan::puzzleCall(int lvl)
   sleep(2);
   int exitStatus = system(lvlCall.c_str());
 
-  if (exitStatus == 0)
-  {
-    return false;
-  }
-
   return true;
 }
 
