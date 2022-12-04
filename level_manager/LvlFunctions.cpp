@@ -40,7 +40,6 @@ int lvlMan::selectRandomLvl()
   return rando;
 }
 
-
 bool lvlMan::puzzleCall(int lvl)
 {
   string lvlCall = "./level_manager/startEndLvl.sh " + to_string(lvl);
@@ -60,7 +59,7 @@ void lvlMan::getExitCode()
   srand(time(NULL)); // set random seed 
   int codeNum = (rand() % 10); // add random number from 0 - 9 to ExitCode
   ofstream exitCodeFile;
-  exitCodeFile.open("final_code.txt", ios_base::app);
+  exitCodeFile.open("level_manager/final_code.txt", ios_base::app);
   exitCodeFile << codeNum;
   exitCodeFile.close();
 }

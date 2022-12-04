@@ -1,10 +1,13 @@
 #! /bin/bash
 
+# Jasper Charlinski
+
+# This program calls a level executable based on the integer it is passed
+#   the level to be called is determined by the LvlManager
+
 clear
 
 case $1 in
-# should get bool retrun value from each level to say weather passed or failed
-    #premissions need to be set during the init so the levels can be called
 
     1)
         ./level_manager/level1/rising_acid.py;;

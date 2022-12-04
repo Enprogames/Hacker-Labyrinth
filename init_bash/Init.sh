@@ -1,5 +1,14 @@
 #!/usr/bin/bash
 
+# Sebastien Van Den Bremt
+# Jasper Charlinski
+
+# This program sets up the initial environment for the game to run by
+#   changing the terminal window size 
+#   changing terminal text color
+#   compiling necessary files
+#   setting executable permissions for user on necessary executables
+
 
 #To set the color and maybe size of the terminal text
 #https://unix.stackexchange.com/questions/64268/is-there-a-way-to-temporarily-change-the-terminal-colour
@@ -18,7 +27,7 @@ Print () {
 
 Print
 
-#set local variables
+# set local variables
 
 declare time=4.00
 userID=$(whoami)
@@ -27,8 +36,7 @@ declare -i powerUp
 declare -i currLvl=0
 declare -i maxLvl=3
 
-#compile files and set permmissions
-# clear code file from previous sessions
+# compile files and set permmissions
 
 # touch all files in level manager subtree
 # add -print to show files being touched
@@ -38,22 +46,29 @@ find ../level_manager -exec touch {} \;
 (cd ../level_manager && make)
 
 
-#add permissions to scripts
+# set permissions for game manager scripts
+
 if ! [ -x ../start_menu/mainMenu.sh ]; then
 	chmod u+x ../start_menu/mainMenu.sh
 fi
+
 if ! [ -x ../level_manager/inGameMenu.sh ]; then
 	chmod u+x ../level_manager/inGameMenu.sh
 fi
+
 if ! [ -x ../level_manager/startEndLvl.sh ]; then
 	chmod u+x ../level_manager/startEndLvl.sh
 fi
+
 if ! [ -x ../level_manager/inGameMenu.sh ]; then
 	chmod u+x ../level_manager/inGameMenu.sh
 fi
 
+if ! [ -x ../level_manager/game_over/game_over.sh ]; then
+	chmod u+x ../level_manager/game_over/game_over.sh
+fi
 
-#set permissions 
+# set permissions for level scripts
 
 if ! [ -x ../level_manager/LvlManagerx ]; then
 	chmod u+x ../level_manager/LvlManagerx
@@ -79,6 +94,4 @@ if ! [ -x ../level_manager/level5/regex_challenge.py ]; then
 	chmod u+x ../level_manager/level5/regex_challenge.py
 fi
 
-if ! [ -x ../level_manager/game_over/game_over.sh ]; then
-	chmod u+x ../level_manager/game_over/game_over.sh
-fi
+
