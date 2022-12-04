@@ -31,7 +31,6 @@ int main()
   
   int difficulty = 1; // Variable for difficulty of level
   bool gameFinished = false;
-  char movement;
 
   FifteenTiles Game(difficulty);
 

@@ -19,18 +19,18 @@ long int getTime()
     return t; 
 }
 
-// Bypassing including getch from a library, incase ncurses.h is not installed
-int getch(void) {
-  struct termios oldattr, newattr;
-  int ch;
-  tcgetattr(STDIN_FILENO, &oldattr);
-  newattr = oldattr;
-  newattr.c_lflag &= ~(ICANON | ECHO);
-  tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
-  ch = getchar();
-  tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);
-  return ch;
-}
+// // Bypassing including getch from a library, incase ncurses.h is not installed
+// int getch(void) {
+//   struct termios oldattr, newattr;
+//   int ch;
+//   tcgetattr(STDIN_FILENO, &oldattr);
+//   newattr = oldattr;
+//   newattr.c_lflag &= ~(ICANON | ECHO);
+//   tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
+//   ch = getchar();
+//   tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);
+//   return ch;
+// }
 
 int main() {
 
@@ -38,7 +38,7 @@ int main() {
   const int gameDuration = 300; // length of time limit in seconds
 
   decryptKeeper Game;
-  int c = 0;
+
   int key;
   fstream fin, fout;
   Game.Text();
@@ -52,9 +52,7 @@ int main() {
       return 0;
     }
 
-    c = 0;
-
-    switch ((c = getch())) {
+    switch (getchar()) {
     case 'a':
       // Game.messagePrint();
       Game.messageMinus(); // key left

@@ -14,6 +14,9 @@ private:
   // int code = 666;
 
 public:
+
+  decryptKeeper(){disableBufferedInput();}
+  ~decryptKeeper(){enableBufferedInput();}
   // int decryptKeeper::code(){
   //     //int k = code;
   //     return code;
@@ -232,4 +235,23 @@ public:
     cout << "Press arrow 'A' or 'D' to continue, or 'E' to solve the puzzle"
          << endl;
   }
+  
+  void disableBufferedInput() 
+  // disables buffered input allowing program to get input without user having to hit enter
+  {
+      struct termios t;
+      tcgetattr(STDIN_FILENO, &t);
+      t.c_lflag &= ~ICANON; 
+      tcsetattr(STDIN_FILENO, TCSANOW, &t);
+  }
+
+  void enableBufferedInput()
+  // enables buffered input so user can see what they are typing
+  {
+      struct termios t;
+      tcgetattr(STDIN_FILENO, &t);
+      t.c_lflag |= ICANON; 
+      tcsetattr(STDIN_FILENO, TCSANOW, &t);
+  }
 };
+
