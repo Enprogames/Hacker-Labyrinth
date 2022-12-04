@@ -285,21 +285,18 @@ void FifteenTiles::printMenu()
 
 // Capture characters from standard input without waiting for enter to be pressed
 // By Sebastian, changed a little by me
-char getch(void) 
+void disableBufferedInput() 
 {
-  struct termios t;
-  char ch;
-  tcgetattr(STDIN_FILENO, &t);
-  t.c_lflag &= ~(ICANON | ECHO);
-  tcsetattr(STDIN_FILENO, TCSANOW, &t);
-  ch = getchar();
-  return ch;
+    struct termios t;
+    tcgetattr(STDIN_FILENO, &t); //get the current terminal I/O structure
+    t.c_lflag &= ~ICANON; //Manipulate the flag bits to do what you want it to do
+    tcsetattr(STDIN_FILENO, TCSANOW, &t); //Apply the new settings
 }
 
 void enableBufferedInput()
 {
-  struct termios t;
-  tcgetattr(STDIN_FILENO, &t);
-  t.c_lflag |= ICANON; 
-  tcsetattr(STDIN_FILENO, TCSANOW, &t);
+    struct termios t;
+    tcgetattr(STDIN_FILENO, &t);
+    t.c_lflag |= ICANON; 
+    tcsetattr(STDIN_FILENO, TCSANOW, &t);
 }

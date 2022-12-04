@@ -46,10 +46,12 @@ int main()
     Game.printMenu();
     Game.printBoard();
 
-    movement = getch();
+    disableBufferedInput();
 
-    Game.move(movement);
+    Game.move(getchar());
 
+    enableBufferedInput();
+    
     gameFinished = Game.complete();
 
     if (getTime() >= startTime + gameDuration)

@@ -45,5 +45,5 @@ class FifteenTiles {
     bool complete();
 };
 
-char getch(void);
+void disableBufferedInput();
 void enableBufferedInput();
