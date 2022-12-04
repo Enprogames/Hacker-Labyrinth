@@ -1,3 +1,6 @@
+// PATH CHOICE HEADER
+// Jasper Charlinski
+
 #pragma once
 
 #include <string>
@@ -31,3 +34,6 @@ class PowerUps
     powerUp minusOneMinuteNextGame; // Power up 5
     powerUp plusOneMinuteNextGame; // Power up 6 
 };
+
+void disableBufferedInput();
+void enableBufferedInput();

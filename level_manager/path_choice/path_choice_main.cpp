@@ -1,3 +1,11 @@
+// PATH CHOICE MAIN
+// Jasper Charlinski
+
+// Path Choice provides player with two options, left door and right door.
+// Behind each door is the chance for the player to receive a power up that will
+// help them in preceding level(s), or the chance to receive a draw back that will make
+// the preceding level(s) more difficult.
+
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
@@ -71,9 +79,9 @@ int main ()
     }
 
     cout << endl << "Enter any key to continue" << endl;
-    cin >> choice;
-    cin.clear();
-    cin.ignore(Num_To_Ignore, '\n');
+    disableBufferedInput();
+    getchar();
+    enableBufferedInput();
 
     return powerUp;
 }

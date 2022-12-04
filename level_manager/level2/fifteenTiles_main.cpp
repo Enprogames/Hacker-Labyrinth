@@ -46,12 +46,8 @@ int main()
     Game.printMenu();
     Game.printBoard();
 
-    disableBufferedInput();
-
     Game.move(getchar());
 
-    enableBufferedInput();
-    
     gameFinished = Game.complete();
 
     if (getTime() >= startTime + gameDuration)
@@ -74,10 +70,9 @@ int main()
   system("clear");
   Game.printBoard();
   cout << "Congratulation Player! you have completed this challenge." << endl;
-  
-  char anyChar;
+
   cout << endl<<endl << "Enter any key to continue..." << endl;
-  cin >> anyChar;
+  getchar();
 
   return 1;
 }

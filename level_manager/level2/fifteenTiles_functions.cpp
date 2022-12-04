@@ -17,7 +17,8 @@ using namespace std;
 
 FifteenTiles::FifteenTiles(int difficulty)
 {
-    
+    disableBufferedInput();
+
     switch (difficulty) {
     case 1:
         randomizeValue = 1000;
@@ -283,9 +284,10 @@ void FifteenTiles::printMenu()
     cout << endl << "w = Up, s = Down, a = Left, d = Right" << endl;
 }
 
-// Capture characters from standard input without waiting for enter to be pressed
-// By Sebastian, changed a little by me
+// Idea from: https://cplusplus.com/forum/general/29137/
+
 void disableBufferedInput() 
+// disables buffered input allowing program to get input without user having to hit enter
 {
     struct termios t;
     tcgetattr(STDIN_FILENO, &t); //get the current terminal I/O structure
@@ -294,6 +296,7 @@ void disableBufferedInput()
 }
 
 void enableBufferedInput()
+// enables buffered input so user can see what they are typing
 {
     struct termios t;
     tcgetattr(STDIN_FILENO, &t);

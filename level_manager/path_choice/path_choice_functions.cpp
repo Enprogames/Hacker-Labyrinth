@@ -1,7 +1,17 @@
+// PATH CHOICE FUNCTIONS
+// Jasper Charlinski
+
+// Path Choice provides player with two options, left door and right door.
+// Behind each door is the chance for the player to receive a power up that will
+// help them in preceding level(s), or the chance to receive a draw back that will make
+// the preceding level(s) more difficult.
+
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
 #include <time.h>
+#include <termios.h>
+#include <unistd.h>
 #include "path_choice_header.h"
 
 using namespace std;
@@ -97,5 +107,24 @@ int PowerUps::givePowerUp()
     }
 
     return 0;
+}
 
+// Idea from: https://cplusplus.com/forum/general/29137/
+
+void disableBufferedInput() 
+// disables buffered input allowing program to get input without user having to hit enter
+{
+    struct termios t;
+    tcgetattr(STDIN_FILENO, &t); //get the current terminal I/O structure
+    t.c_lflag &= ~ICANON; //Manipulate the flag bits to do what you want it to do
+    tcsetattr(STDIN_FILENO, TCSANOW, &t); //Apply the new settings
+}
+
+void enableBufferedInput()
+// enables buffered input so user can see what they are typing
+{
+    struct termios t;
+    tcgetattr(STDIN_FILENO, &t);
+    t.c_lflag |= ICANON; 
+    tcsetattr(STDIN_FILENO, TCSANOW, &t);
 }
