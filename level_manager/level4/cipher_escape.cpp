@@ -320,7 +320,7 @@ bool StageFiveCheck(string userInput)
 void DisplayDecoder()
 {
   string textLines;
-  std::ifstream decodeFile("Codes_CipherEscape.txt");
+  std::ifstream decodeFile("level_manager/level4/Codes_CipherEscape.txt");
 
   if(decodeFile.is_open()) {
     while(getline(decodeFile, textLines)) {
