@@ -1,11 +1,3 @@
 ---HACKER'S LABYRINTH NOTEPAD----
 
 
-Exit code digit: 1
-
-Word1 is: MULTIPLY
-Word2 is: THIRTY-SEVEN
-Word3 is: WITHExit code digit: 0
-Exit code digit: 1
-Exit code digit: 9
-Exit code digit: 3

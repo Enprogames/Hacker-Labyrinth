@@ -2,5 +2,16 @@
 #pragma once
 #include <string>
 
-// answer checking function for user's string inputs
-void AnswerCheck(int count, std::string userInput);
+// input checking functions for user's string inputs
+bool StageOneCheck(std::string userInput);
+
+bool StageTwoCheck(std::string userInput);
+
+bool StageThreeCheck(std::string userInput);
+
+bool StageFourCheck(std::string userInput);
+
+bool StageFiveCheck(std::string userInput);
+
+// decoder displaying function
+void DisplayDecoder();
