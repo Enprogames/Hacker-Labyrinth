@@ -44,9 +44,15 @@ bool lvlMan::puzzleCall(int lvl)
 {
   string lvlCall = "./level_manager/startEndLvl.sh " + to_string(lvl);
   sleep(2);
-  int exitStatus = system(lvlCall.c_str());
+  system(lvlCall.c_str());
 
   return true;
+}
+
+void lvlMan::finalLevelCall()
+{
+  sleep(2);
+  system("./level_manager/final_level/code_entry.py");
 }
 
 void lvlMan::getExitCode()

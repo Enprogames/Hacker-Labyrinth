@@ -71,6 +71,10 @@ if ! [ -x level_manager/game_over/game_over.sh ]; then
 	chmod u+x level_manager/game_over/game_over.sh
 fi
 
+if ! [ -x level_manager/final_level/code_entry.sh ]; then
+	chmod u+x level_manager/final_level/code_entry.sh 
+fi
+
 # set permissions for level scripts
 
 if ! [ -x level_manager/LvlManagerx ]; then

@@ -16,6 +16,7 @@ private:
   int selectRandomLvl();
   int selectRandomExitCodeNum();
   bool puzzleCall(int lvl);
+  void finalLevelCall();
 
 public:
 
@@ -25,8 +26,9 @@ public:
 
   void pathChoice();
   bool startLvl(int lvl){return puzzleCall(lvl);};
+  void finalLvl(){finalLevelCall();};
   int getLvl(){return selectRandomLvl();};
   void getExitCode();
-  int getPuzzleSize(){return Puzzle.size();}
+  int getPuzzleSize(){return Puzzle.size();};
   int getGamesize(){return gameSize;};
 };

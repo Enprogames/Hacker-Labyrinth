@@ -15,7 +15,9 @@ int main() {
 
     if(G.getPuzzleSize() == 0)
     {
-      break;
+      cout << "\nCongratulations " << getlogin() << ", you have reached the final level!!" << endl;
+      G.finalLvl();
+      return 1;
     }
 
     // call to the random level
@@ -29,5 +31,5 @@ int main() {
     G.getExitCode();
   }
   
-  return 0;
+  return 1;
 }
