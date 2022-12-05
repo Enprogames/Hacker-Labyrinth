@@ -30,15 +30,6 @@ Print () {
 
 Print
 
-# set local variables
-
-declare time=4.00
-userID=$(whoami)
-declare -i diff=2
-declare -i powerUp
-declare -i currLvl=0
-declare -i maxLvl=3
-
 # compile files and set permmissions
 
 # touch all files in level manager subtree

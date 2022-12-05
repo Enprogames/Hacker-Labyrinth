@@ -1,11 +1,8 @@
-                    HACKER'S LABYRINTH NOTEPAD 
+---HACKER'S LABYRINTH NOTEPAD----
 
 
-
-
-
-Exit code digit: 7
-Exit code digit: 6
-Exit code digit: 4
+Exit code digit: 8
 Exit code digit: 0
-Exit code digit: 3
+Exit code digit: 9
+Exit code digit: 1
+Exit code digit: 5

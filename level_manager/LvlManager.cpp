@@ -15,7 +15,7 @@ int main() {
 
     if(G.getPuzzleSize() == 0)
     {
-      cout << "\nCongratulations " << getlogin() << ", you have reached the final level!!" << endl;
+      cout << "\n\nCongratulations " << getlogin() << ", you have reached the final level!!" << endl;
       G.finalLvl();
       return 1;
     }
@@ -31,5 +31,5 @@ int main() {
     G.getExitCode();
   }
   
-  return 1;
+  return 0;
 }

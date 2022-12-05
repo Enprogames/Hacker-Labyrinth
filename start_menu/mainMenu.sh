@@ -12,13 +12,16 @@ while true; do
 	case $Option in
 
 		S | s)
-    			echo "Starting Game"
-    			#Call to the main Game script
+			echo "Starting Game"
+			#Call to the main Game script
 			./level_manager/LvlManagerx
+			sleep 2
+			# Goes back to start menu after game is finished
+			./start_menu/mainMenu.sh
     		;;
 
   		D | d)
-		echo -n "Easy: 1  Medium: 2  Hard : 3             Set the difficulty setting:"	  
+			echo -n "Easy: 1  Medium: 2  Hard : 3             Set the difficulty setting:"	  
     		read Set
     		if [[ $Set -eq 1 ]]
     		then

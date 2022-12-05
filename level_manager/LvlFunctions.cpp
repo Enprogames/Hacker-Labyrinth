@@ -52,6 +52,7 @@ bool lvlMan::puzzleCall(int lvl)
 void lvlMan::finalLevelCall()
 {
   sleep(2);
+  system("clear");
   system("./level_manager/final_level/code_entry.py");
 }
 
