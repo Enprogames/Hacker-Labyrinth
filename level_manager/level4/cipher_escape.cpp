@@ -1,7 +1,7 @@
 // CipherEscape.cpp
 #include <iostream>
 #include <fstream>
-#include "cipher_escape.h"
+#include "CipherEscape.h"
 using std::cin;
 using std::cerr;
 using std::cout;
@@ -18,10 +18,11 @@ const string decodeCMD = "d";
 
 const int correctPasscode = 692420;
 const int ignoreVal = 100;
-const int maxIncorrectANS = 20;
+const int maxIncorrectANS = 5;
 
 // Global variable to update throughout functions
 int incorrectANS = 0;
+
 int main()
 {
   // Opening message to player
@@ -32,8 +33,8 @@ int main()
   cout << "riddles of this room. Enter in single string actions, with syntax such as 'touch'," << endl;
   cout << "'look', and for objects 'useobjectlikethis' to interact with the room. Decode messages" << endl;
   cout << "to progress. If nothing happens when you input a command, try something" << endl;
-  cout << "different. Enter 'D' to open the decoder. If you enter an incorrect" << endl;
-  cout << "action a total of 20 times, the room will fill with a poisonous gas." << endl;
+  cout << "different. Enter 'd' to open the decoder. If you enter an incorrect" << endl;
+  cout << "action a total of 5 times, the room will fill with a poisonous gas." << endl;
   cout << "Good luck player. Now, begin.'" << endl;
   cout << " " << endl;
   cout << "The room is cold and devoid of any light. Maybe you should feel " << endl;
@@ -129,14 +130,13 @@ int main()
       return 0;
     }
 
-
   } while (correct == false);
 
   // > look
 
   cout << " " << endl;
-  cout << "You look around and see a metal door with a 'usable PINpad' on the wall to your right," << endl;
-  cout << "and four sets of codes carved into the wall to your left:" << endl;
+  cout << "You look around and see a metal door with a 'usable pinpad' on the wall to your right" << endl;
+  cout << "(cannot use decoder once pinpad is used), and four sets of codes carved into the wall to your left:" << endl;
   cout << " " << endl;
   cout << "01010011 01001001 01011000 / ";
   cout << "01000001 01010100 01000010 01000001 01010011 01001000" << endl;
@@ -165,6 +165,7 @@ int main()
       cout << " " << endl;
       return 0;
     }
+
   } while (correct == false);
 
   // > usePINpad
@@ -180,15 +181,25 @@ int main()
   int passcode;
   cin >> passcode;
 
-  while(passcode != correctPasscode) {
+  do {
     cin.clear();
     cin.ignore(ignoreVal,'\n');
     cout << " " << endl;
     cout << "Incorrect passcode." << endl;
     cout << "Please try again." << endl;
     cout << " " << endl;
+
+    incorrectANS++;
+    if (incorrectANS == maxIncorrectANS) {
+      cout << " " << endl;
+      cout << "Max incorrect answers reached. Level failed..." << endl;
+      cout << " " << endl;
+      return 0;
+    }
+
     cin >> passcode;
-  }
+
+  } while(passcode != correctPasscode);
   // > 692420
 
   // With the correct 6-digit passcode inputted, the player completes the level
@@ -320,7 +331,7 @@ bool StageFiveCheck(string userInput)
 void DisplayDecoder()
 {
   string textLines;
-  std::ifstream decodeFile("level_manager/level4/Codes_CipherEscape.txt");
+  std::ifstream decodeFile("Codes_CipherEscape.txt");
 
   if(decodeFile.is_open()) {
     while(getline(decodeFile, textLines)) {
