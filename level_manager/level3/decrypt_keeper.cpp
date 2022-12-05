@@ -54,12 +54,10 @@ int main() {
 
     switch (getchar()) {
     case 'a':
-      // Game.messagePrint();
       Game.messageMinus(); // key left
       Game.messagePrint();
       break;
     case 'd':
-      // Game.messagePrint();
       Game.messagePlus(); // key right
       Game.messagePrint();
       break;
@@ -78,12 +76,14 @@ int main() {
       }
       break;
     case 't':
+    cout << endl;
       cout << "Transfer last line to textfile" << endl;
       Game.printToFile();
       Game.messagePrint();
       break;
     case 'v':
     //Is this nessecary or should we call to the vim script?
+      cout << endl;
       cout << "View contents of notePad" << endl;
       system("cat level_manager/notePad.txt");
       cout<<" " <<endl;

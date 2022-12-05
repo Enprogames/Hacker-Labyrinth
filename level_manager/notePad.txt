@@ -1,3 +1,11 @@
 ---HACKER'S LABYRINTH NOTEPAD----
 
 
+
+Exit code digit: 3
+
+Exit code digit: 2
+
+Exit code digit: 2
+
+Word2 is: OCDMOT-NZQZI

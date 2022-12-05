@@ -60,8 +60,12 @@ while true; do
     		elif [[ $Set -eq 3 ]] 
     		then
 			echo "DeCrypt Keeper:"
-            #Insert info on using DeCrypt Keeper here
-
+            echo "Use the arrows ( A and D) to navigate the cypher keys"
+			echo "When you spot a word, add it to the notepad with 't' then the number of the word in the sentence"
+			echo "When you have all the numbers finished, calculate the equation from the decrypted words"
+			echo "Then press 'e' to enter the resulting 3 digit number, but be warned, you only have one try!"
+			echo ""
+			echo ""
             echo -n "Type any one key then press enter to return to inGameMenu"
             read -p Back
             clear
