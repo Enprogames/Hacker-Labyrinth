@@ -20,5 +20,3 @@ sleep 4
 LvlManPID=$(pgrep LvlManagerx)
 kill $LvlManPID
 exit
-echo "press enter to return to main menu"
-#. start_menu/mainMenu.sh 

@@ -5,7 +5,6 @@
 path="start_menu/"
 clear
 cat ${path}/Menu
-
 echo -n "                              >>USER ENTER OPTION HERE:  "
 while true; do
 	
@@ -17,9 +16,10 @@ while true; do
 			echo "Starting Game"
 			#Call to the main Game script
 			./level_manager/LvlManagerx
-			sleep 2
+			sleep 2s
 			# Goes back to start menu after game is finished
 			./start_menu/mainMenu.sh
+			exit
     		;;
 
   		D | d)

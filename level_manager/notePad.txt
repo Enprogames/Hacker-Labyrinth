@@ -1,7 +1,3 @@
 ---HACKER'S LABYRINTH NOTEPAD----
 
 
-
-Exit code digit: 8
-
-Exit code digit: 4
