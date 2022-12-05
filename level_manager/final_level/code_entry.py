@@ -30,6 +30,7 @@ if __name__ == '__main__':
     retries = 3
     guess = None
     initial_prompt = read_data_file('initial_prompt.txt')
+    pin_pad = read_data_file('pin_pad.txt')
 
     # read the file containing the code
     code = read_data_file('../final_code.txt').strip()
@@ -40,6 +41,7 @@ if __name__ == '__main__':
 
     # continue looping until an answer is satisfactory or the user runs out of retries
     while retries >= 1 and not guess == code:
+        print(pin_pad)
         guess = input("Enter your guess or perform some other action: (H) for help and (M) for the ingame menu."
                       " You have {} tries left:\n".format(retries)).strip()
 
@@ -62,7 +64,7 @@ if __name__ == '__main__':
                 retries -= 1
 
     if retries == 0 and not guess == code:
-        print("A correct answer was {}".format(code))
+        print("The correct answer was {}".format(code))
         input("Press enter to continue")
         exit(0)
 
