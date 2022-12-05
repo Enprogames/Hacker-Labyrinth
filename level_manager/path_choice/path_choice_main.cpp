@@ -81,6 +81,7 @@ int main ()
     cout << endl << "Enter any key to continue..." << endl;
     disableBufferedInput();
     cin >> choice;
+    cout << endl;
     enableBufferedInput();
 
     return powerUp;

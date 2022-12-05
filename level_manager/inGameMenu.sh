@@ -104,7 +104,8 @@ while true; do
   		E | e)
     		echo "Exiting Program"
     		sleep 1s
-		exit
+			# ./level_manager/game_over/game_over.sh # this still leaves the current level running
+			exit
     		;;
 
   		*)
