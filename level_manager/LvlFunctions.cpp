@@ -63,4 +63,8 @@ void lvlMan::getExitCode()
   exitCodeFile.open("level_manager/final_code.txt", ios_base::app);
   exitCodeFile << codeNum;
   exitCodeFile.close();
+
+  exitCodeFile.open("level_manager/notePad.txt", ios_base::app);
+  exitCodeFile << "Exit code digit: " << codeNum << endl;
+  exitCodeFile.close();
 }

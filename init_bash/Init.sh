@@ -106,6 +106,5 @@ fi
 truncate -s 0 level_manager/notePad.txt # empty file by setting size in bytes to 0
 truncate -s 0 level_manager/final_code.txt # empty file by setting size in bytes to 0
 
-echo "                    HACKER'S LABYRINTH NOTEPAD " >> level_manager/notePad.txt
-echo -e "\n\n\n\n" >> level_manager/notePad.txt
+echo -e "---HACKER'S LABYRINTH NOTEPAD----\n\n" >> level_manager/notePad.txt
 # echo "This notepad uses the same commands as VIM. Use ESC + i to insert, ESC + wq to write and quit."
