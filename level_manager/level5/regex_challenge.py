@@ -5,6 +5,7 @@ import re
 import json
 import random
 import signal
+import subprocess
 
 
 def read_data_file(file_name):
@@ -26,42 +27,6 @@ def run_ingame_menu():
     ingame_menu_path = os.path.join(level_manager_dir, ingame_menu_filename)
 
     subprocess.run(ingame_menu_path)
-
-
-def mainloop():
-    global retries, guess
-    # continue looping until an answer is satisfactory or the user runs out of retries
-    while retries >= 1 and not pattern_set.test_pattern(guess):
-        guess = input("Enter your guess or perform some other action: (H) for help and (M) for the ingame menu."
-                    " You have {} tries left:\n".format(retries)).strip()
-
-        # user input other than guesses
-        if guess.lower() == 'h':
-            print("""The purpose of this game is to enter some regular expression which matches the given type of string.
-                    Various tests are done on the input to make sure it matches the string and doesn't match other similar ones.
-                    This is so that a very general expression can't be given which matches many strings.""")
-        elif guess.lower() == 'm':
-            run_ingame_menu()
-        else:
-            try:
-                old_guess = guess
-                guess = str(guess)
-            except ValueError:
-                guess = old_guess
-
-            if pattern_set.test_pattern(guess):
-                print("Congratulations! Your guess of {} was correct!".format(guess))
-            elif guess:
-                print("{} is not correct.".format(guess))
-                retries -= 1
-
-    if retries == 0 and not pattern_set.test_pattern(guess):
-        print("A correct answer was {}".format(valid_pattern))
-        input("Press enter to continue")
-        exit(0)
-
-    input("Press enter to continue")
-    exit(1)
 
 
 def out_of_time_exit(sig_num, stack_frame):
@@ -125,7 +90,7 @@ if __name__ == '__main__':
     print("Examples of valid {}s:".format(name.lower()))
     for valid_str in pattern_set.valid_strings:
         print(valid_str)
-    
+
     print("Examples of invalid {}s:".format(name.lower()))
     for invalid_str in pattern_set.invalid_strings:
         print(invalid_str)
@@ -133,4 +98,40 @@ if __name__ == '__main__':
     signal.signal(signal.SIGALRM, out_of_time_exit)
     signal.alarm(timeout)
 
-    mainloop()
+    # continue looping until an answer is satisfactory or the user runs out of retries
+    while retries >= 1 and not pattern_set.test_pattern(guess):
+        guess = input("Enter your guess or perform some other action: (H) for help and (M) for the ingame menu."
+                      " You have {} tries left:\n".format(retries)).strip()
+
+        # user input other than guesses
+        if guess.lower() == 'h':
+            print(initial_prompt)
+            print("""The purpose of this game is to enter some regular expression which matches the given type of string.
+                    Various tests are done on the input to make sure it matches the string and doesn't match other similar ones.
+                    This is so that a very general expression can't be given which matches many strings.
+
+                    Phone number Regex: ^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$
+                    SIN Regex: ^(\d{3}-\d{3}-\d{3})|(\d{9})$
+                    """)
+        elif guess.lower() == 'm':
+            run_ingame_menu()
+        else:
+            try:
+                old_guess = guess
+                guess = str(guess)
+            except ValueError:
+                guess = old_guess
+
+            if pattern_set.test_pattern(guess):
+                print("Congratulations! Your guess of {} was correct!".format(guess))
+            elif guess:
+                print("{} is not correct.".format(guess))
+                retries -= 1
+
+    if retries == 0 and not pattern_set.test_pattern(guess):
+        print("A correct answer was {}".format(valid_pattern))
+        input("Press enter to continue")
+        exit(0)
+
+    input("Press enter to continue")
+    exit(1)
