@@ -22,7 +22,6 @@ const int maxIncorrectANS = 20;
 
 // Global variable to update throughout functions
 int incorrectANS = 0;
-
 int main()
 {
   // Opening message to player
