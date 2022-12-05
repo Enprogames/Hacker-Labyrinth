@@ -15,6 +15,10 @@ cat ./level_manager/game_over/GameOverScreen.txt
 
 sleep 4
 
-# add kill by PID
+# Kill level manager
 
-. start_menu/mainMenu.sh 
+LvlManPID=$(pgrep LvlManagerx)
+kill $LvlManPID
+exit
+echo "press enter to return to main menu"
+#. start_menu/mainMenu.sh 
