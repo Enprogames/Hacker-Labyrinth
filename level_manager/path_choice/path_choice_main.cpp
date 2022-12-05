@@ -11,7 +11,7 @@
 #include <cctype>
 #include "path_choice_header.h"
 
-using namespace std;
+    using namespace std;
 
 int main ()
 {
@@ -78,9 +78,9 @@ int main ()
             break;
     }
 
-    cout << endl << "Enter any key to continue" << endl;
+    cout << endl << "Enter any key to continue..." << endl;
     disableBufferedInput();
-    getchar();
+    cin >> choice;
     enableBufferedInput();
 
     return powerUp;

@@ -70,8 +70,9 @@ int main()
   Game.printBoard();
   cout << "Congratulation Player! you have completed this challenge." << endl;
 
+  char anyChar;
   cout << endl<<endl << "Enter any key to continue..." << endl;
-  getchar();
+  cin >> anyChar;
 
   return 1;
 }
