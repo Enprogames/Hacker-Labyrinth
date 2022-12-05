@@ -50,7 +50,7 @@ while true; do
     		elif [[ $Set -eq 2 ]] 
     		then
 			echo  "Fifteen Tiles:"
-            #Insert info on using Fifteen Tiles here
+            echo -e "The 15 puzzle (also called Gem Puzzle, Boss Puzzle, Game of Fifteen, Mystic Square and many others) \nis a sliding puzzle having 15 square tiles numbered 1–15 in a frame that is 4 tiles high and 4 tiles wide, leaving one unoccupied tile position.\nTiles in the same row or column of the open position can be moved by sliding them horizontally or vertically, respectively.\nThe goal of the puzzle is to place the tiles in numerical order.\n"
 
             echo "Type any one key then press enter to return to inGameMenu"
             read -p Back

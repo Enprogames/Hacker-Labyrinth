@@ -1,7 +1,7 @@
 // CipherEscape.cpp
 #include <iostream>
 #include <fstream>
-#include "CipherEscape.h"
+#include "cipher_escape.h"
 using std::cin;
 using std::cerr;
 using std::cout;
