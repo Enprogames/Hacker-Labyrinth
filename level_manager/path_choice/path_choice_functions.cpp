@@ -19,19 +19,19 @@ using namespace std;
 PowerUps::PowerUps()
 {
     instantFinalLevel.rarity = 1;
-    instantFinalLevel.prompt = "You hear a voice on the overhead speaker...\n\n 'Congratulations player! You have happen to stumble upon the rarest item in the game, you have the option of exiting the game right now and I will spare your life.";
+    instantFinalLevel.prompt = "You hear a voice on the overhead speaker...\n\n 'Congratulations player! You have happen to stumble upon the rarest item in the game,\n you have the option of exiting the game right now and I will spare your life.";
     instantFinalLevel.key = 1;
 
     skipNextLevel.rarity = 10;
-    skipNextLevel.prompt = "The door you selected has a small coupon shaped paper on the food behind it. A voice begins to play on the loudspeaker...\n'Congratulations player! You have found one of the rarest items I have hidden, you may skip the next level and still receive the clue. Your life is spared... for now.'";
+    skipNextLevel.prompt = "The door you selected has a small coupon shaped paper on the ground behind it. A voice begins to play on the loudspeaker...\n'Congratulations player! You have found one of the rarest items I have hidden,\n you may skip the next level and still receive the clue. Your life is spared... for now.'";
     skipNextLevel.key = 2;
 
     plusOneMinutePermanent.rarity = 20;
-    plusOneMinutePermanent.prompt = "You hear a voice on the overhead speaker...\n\n 'Congratulations on making it past that puzzle player. No other victim finished that puzzle in quite the same way as you. Guess what else? By selecting the correct door, you have been rewarded with an extra minute to complete each preceding level. You’ll need it!'";
+    plusOneMinutePermanent.prompt = "You hear a voice on the overhead speaker...\n\n 'Congratulations on making it past that puzzle player. No other victim finished that puzzle in quite the same way as you.\n Guess what else? By selecting the correct door, you have been rewarded with an extra minute to complete each preceding level. You’ll need it!'";
     plusOneMinutePermanent.key = 3; 
 
     minusOneMinutePermanent.rarity = 20;
-    minusOneMinutePermanent.prompt = "You hear a voice on the overhead speaker...\n\n 'Congratulations on making it past that puzzle player. Unfortunately I have some bad news for you, you have selected the wrong door. 1 minute will be taken off your time to complete each preceding level";
+    minusOneMinutePermanent.prompt = "You hear a voice on the overhead speaker...\n\n 'Congratulations on making it past that puzzle player. Unfortunately I have some bad news for you, you have selected the wrong door.\n 1 minute will be taken off your time to complete each preceding level";
     minusOneMinutePermanent.key = 4; 
 
     plusOneMinuteNextGame.rarity = 35;
