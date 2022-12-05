@@ -17,17 +17,16 @@
                               |                                                                                        |
                               |                                                                                        |
                               |                                                                                        |
-                              |               |Option|                         |Command|                               |
+                              |                         |Option|                     |Command|                         |
                               |                                                                                        |
-                              |               START A NEW GAME                     S                                   |
-                              |               SET DIFFICULTY SETTING               D                                   |
-                              |               HELP / CONTROLS                      H                                   |
-                              |               QUIT                                 Q                                   |
-                              |                                                                                        |
+                              |                     START A NEW GAME                     S                             |
+                              |                     SET DIFFICULTY SETTING               D                             |
+                              |                     QUIT                                 Q                             |
                               |                                                                                        |
                               |                                                                                        |
                               |                                                                                        |
-                              |                                                                                        |            
+                              |                                                                                        |
+                              |                                                                                        |          |                                                                                        | 
                               |                                                                                        |
                               |                                                                                        |
                               |                                                                                        |

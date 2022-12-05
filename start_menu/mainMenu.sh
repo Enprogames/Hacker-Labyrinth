@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+# Main Menu GUI for Hackers Labyrinth
+
 path="start_menu/"
 clear
 cat ${path}/Menu
@@ -53,11 +55,6 @@ while true; do
 			cat ${path}/Menu
 			echo -n "                              >>USER ENTER OPTION HERE:  "
     		fi
-    		;;
-
-  		H | h)
-    		echo  "Help Menu"
-    		#Create a Help Menu to print
     		;;
 
   		Q | q)

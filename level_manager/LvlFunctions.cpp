@@ -59,13 +59,13 @@ void lvlMan::finalLevelCall()
 void lvlMan::getExitCode()
 {
   srand(time(NULL)); // set random seed 
-  int codeNum = (rand() % 10); // add random number from 0 - 9 to ExitCode
+  int codeNum = (rand() % 10); // get random number from 0 - 9
   ofstream exitCodeFile;
   exitCodeFile.open("level_manager/final_code.txt", ios_base::app);
-  exitCodeFile << codeNum;
+  exitCodeFile << codeNum; // append random number to exit code file
   exitCodeFile.close();
 
   exitCodeFile.open("level_manager/notePad.txt", ios_base::app);
-  exitCodeFile << "Exit code digit: " << codeNum << endl;
+  exitCodeFile << endl << "Exit code digit: " << codeNum << endl; // append random number to players notepad
   exitCodeFile.close();
 }
