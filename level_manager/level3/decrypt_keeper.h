@@ -17,12 +17,10 @@ public:
 
   decryptKeeper(){disableBufferedInput();}
   ~decryptKeeper(){enableBufferedInput();}
-  // int decryptKeeper::code(){
-  //     //int k = code;
-  //     return code;
-  // }
+
   int code = 666;
 
+  //The words are declared here
   char Word1[8] = {'P', 'X', 'O', 'W', 'L', 'S', 'O', 'B'};
   char Word2[6] = {'M', 'A', 'B', 'K', 'M', 'R'};
   char Word3[5] = {'L', 'X', 'O', 'X', 'G'};
@@ -31,9 +29,9 @@ public:
 
   char Filler1 = ' ';
   char Filler2 = '-';
-  // ofstream fin, fout;
 
   void Text() {
+    //command to print the username, and make the game text more personal
     std::string Username = getlogin();
     cout << "                   Hello " << Username << endl;
     cout
@@ -61,6 +59,7 @@ public:
   }
 
   void messagePrint() {
+    //will clear screen and print every leter as they stand
     system("clear");
     Text();
     for (int i = 0; i < 8; i++) {
@@ -86,13 +85,14 @@ public:
   }
 
   void messagePlus() {
+    //Will add a point to the cypher code, until past Z, then resets to A
+    //Needs to do every word sepereately, as they are seperated by a space or a '-' 
     for (int i = 0; i < 8; i++) {
       Word1[i] += 1;
       if (Word1[i] > 90) {
         Word1[i] -= 26;
       }
     }
-
     for (int i = 0; i < 6; i++) {
       Word2[i] += 1;
       if (Word2[i] > 90) {
@@ -119,6 +119,8 @@ public:
     }
   }
   void messageMinus() {
+    //Will Substract a point to the cypher code, until past A, then resets to Z
+    //Needs to do every word sepereately, as they are seperated by a space or a '-'
     for (int i = 0; i < 8; i++) {
       Word1[i] -= 1;
       if (Word1[i] < 65) {
@@ -152,6 +154,7 @@ public:
   }
 
   void printToFile() {
+    //A function used to print a desired word to the Notepad
     int wordNum;
     int c = 0;
     string mess1 = "Word1 is: ";

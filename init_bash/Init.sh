@@ -13,22 +13,13 @@
 # MUST BE RUN FROM HACKER-LABYRINTH DIR NOT init_bash
 
 
-#To set the color and maybe size of the terminal text
-#https://unix.stackexchange.com/questions/64268/is-there-a-way-to-temporarily-change-the-terminal-colour
+
+
 
 #reset the window size to full size
 printf '\e[8;60;160t'
 
-#reset the color of text
-Print () {
 
-	str=$1
-	printf "\033[92m${str}\033[0m"
-	#local resetColor='\033[0m'
-	#printf "{\033[102m}%s${resetColor}\n" "${str}"
-}
-
-Print
 
 # compile files and set permmissions
 

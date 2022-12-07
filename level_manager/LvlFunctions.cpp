@@ -28,6 +28,7 @@ lvlMan::~lvlMan(){}
 
 int lvlMan::selectRandomLvl()
 {
+  //A randomizer to select random int from a Vector
   vector<int> out;
   size_t nelems = 1;
   experimental::sample(Puzzle.begin(), Puzzle.end(), back_inserter(out), nelems, std::mt19937{std::random_device{}()});
