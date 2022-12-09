@@ -1,7 +1,8 @@
-// CipherEscape.cpp
+// cipher_escape.cpp, cipher_escape.h, & Codes_CipherEscape.txt
+// all written by Cassius Galdames
 #include <iostream>
 #include <fstream>
-#include "CipherEscape.h"
+#include "cipher_escape.h"
 using std::cin;
 using std::cerr;
 using std::cout;
@@ -29,12 +30,12 @@ int main()
   cout << " " << endl;
   cout << "You find yourself in a small, dark room." << endl;
   cout << "You hear a voice on the loudspeaker:" << endl;
-  cout << "'You must use critical thinking skills and the decoder to solve the" << endl;
-  cout << "riddles of this room. Enter in single string actions, with syntax such as 'touch'," << endl;
-  cout << "'look', and for objects 'useobjectlikethis' to interact with the room. Decode messages" << endl;
-  cout << "to progress. If nothing happens when you input a command, try something" << endl;
-  cout << "different. Enter 'd' to open the decoder. If you enter an incorrect" << endl;
-  cout << "action a total of 5 times, the room will fill with a poisonous gas." << endl;
+  cout << "'You must use critical thinking skills and the decoder to solve the riddles of this room. " << endl;
+  cout << "Enter in single-word lowercase actions, with syntax such as 'touch', 'look', and" << endl;
+  cout << "for objects, 'useobjectlikethis', to interact with the room. Decode messages to progress." << endl;
+  cout << "If nothing happens when you input a command, try something different." << endl;
+  cout << "Enter 'd' to open the decoder. If you enter an incorrect action a total of 5 times," << endl;
+  cout << "the room will fill with a poisonous gas." << endl;
   cout << "Good luck player. Now, begin.'" << endl;
   cout << " " << endl;
   cout << "The room is cold and devoid of any light. Maybe you should feel " << endl;
@@ -110,7 +111,7 @@ int main()
 
   } while (correct == false);
 
-  // > useLightSwitch
+  // > uselightswitch
 
   cout << " " << endl;
   cout << "You reach up high for the switch and manage to flip it on." << endl;
@@ -168,10 +169,10 @@ int main()
 
   } while (correct == false);
 
-  // > usePINpad
+  // > usepinpad
 
   cout << " " << endl;
-  cout << "You use the PINpad. The display turns on and a message reads:" << endl;
+  cout << "You use the pinpad. The display turns on and a message reads:" << endl;
   cout << "'Enter a 6-digit number:'" << endl;
   cout << " " << endl;
 
@@ -207,7 +208,7 @@ int main()
   // For the PIN pad, the error message “Incorrect passcode.” will be displayed
 
   cout << " " << endl;
-  cout << "You enter " << correctPasscode << " on the PIN pad. With a beep, the door unlocks " << endl;
+  cout << "You enter " << correctPasscode << " on the pinpad. With a beep, the door unlocks " << endl;
   cout << "and slowly swings open. Freedom. Congratulations, you've completed the level!" << endl;
   cout << " " << endl;
   cout << "Enter any key to continue." << endl;
