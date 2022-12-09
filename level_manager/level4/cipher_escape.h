@@ -1,4 +1,3 @@
-//CipherEscape.h
 #pragma once
 #include <string>
 
