@@ -5,7 +5,7 @@
 
 <br />
 
-  <img src="documentation/mainMenu.png" alt="main menu" width="80" height="80">
+  <img src="documentation/mainMenu.png" alt="main menu">
   
 <br />
 
