@@ -2,8 +2,11 @@
 <div align="center">
   <h1>Hacker-Labyrinth</h1>
   <h3>Group project for Software Engineering (CSCI 265) at VIU</h3>
-</div>
 
+<br />
+
+  <img src="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/mainMenu.png" alt="main menu" width="80" height="80">
+  
 <br />
 
 <p>
@@ -17,7 +20,6 @@
 
 <br />
 
-<div align="center">
   <h3>For more detailed documentation see the following links</h3>
   <ul>
     <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/Proposal.pdf">Project Proposal</a></li>
