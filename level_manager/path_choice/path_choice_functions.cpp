@@ -59,7 +59,7 @@ int PowerUps::givePowerUp()
     int powerUpChance; // Variable to hold random number
     int choice;
 
-    time_t t; // Get current time from system
+    time_t t; // Get current time from system in seconds
     srand((unsigned) time(&t)); // Generate seed of random from current system time 
 
     powerUpChance = rand() % 100; // Generate random number from 1 - 100
@@ -96,7 +96,7 @@ int PowerUps::givePowerUp()
             cin >> choice;
             if (choice > 2 || choice < 1)
             {
-                cout << "'Excuse me... That wan't an option. I am revoking my offer you get no power ups" << endl;
+                cout << "Excuse me... That wan't an option. I am revoking my offer you get no power ups" << endl;
                 return 0;
             }
             else if (choice == 1)

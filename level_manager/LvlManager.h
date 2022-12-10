@@ -1,11 +1,14 @@
 #pragma once
-//#include "LvlFunctions.cpp"
-//#include "LvlManager.cpp"
 
 #include <iostream>
 #include <vector>
 #include <unistd.h>
-using namespace std;
+  using namespace std;
+
+// LEVEL MANAGER FUNCTIONS
+
+//  Sebastien Van Den Bremt
+//  Jasper Charlinski
 
 class lvlMan {
 private:

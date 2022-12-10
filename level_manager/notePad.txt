@@ -1,3 +1,5 @@
 ---HACKER'S LABYRINTH NOTEPAD----
 
 
+
+Exit code digit: 7

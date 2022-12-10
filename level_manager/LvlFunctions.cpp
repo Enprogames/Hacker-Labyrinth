@@ -4,12 +4,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fstream>
-
   using namespace std;
+
+// LEVEL MANAGER FUNCTIONS
+
+//  Sebastien Van Den Bremt
+//  Jasper Charlinski
 
 lvlMan::lvlMan(int numLvls) // Custom game constructor 
 {
-  for (int i = 1; i < numLvls; i++) // Create the list of levels from given variable
+  for (int i = 1; i < numLvls; i++) // add number of given levels to vector
   {
     Puzzle.push_back(i);
   }
@@ -27,21 +31,25 @@ lvlMan::lvlMan() // Default game constructor
 lvlMan::~lvlMan(){}
 
 int lvlMan::selectRandomLvl()
+// selects random level from Puzzle vector
 {
-  //A randomizer to select random int from a Vector
   vector<int> out;
   size_t nelems = 1;
+
+  // select random element in between the beginning and end of the Puzzle vector and add it to temporary out vector
   experimental::sample(Puzzle.begin(), Puzzle.end(), back_inserter(out), nelems, std::mt19937{std::random_device{}()});
 
+  // get random selection as an int
   int rando = out.front();
 
-  // deletes the level from the vector
+  // delete the selected level from the vector
   Puzzle.erase(remove(Puzzle.begin(), Puzzle.end(), rando), Puzzle.end());
 
   return rando;
 }
 
 bool lvlMan::puzzleCall(int lvl)
+// calls startEndLvl.sh and passes it the random level
 {
   string lvlCall = "./level_manager/startEndLvl.sh " + to_string(lvl);
   sleep(2);
@@ -58,6 +66,7 @@ void lvlMan::finalLevelCall()
 }
 
 void lvlMan::getExitCode()
+// generates random digit and appends it to final_code.txt and players notepad 
 {
   srand(time(NULL)); // set random seed 
   int codeNum = (rand() % 10); // get random number from 0 - 9

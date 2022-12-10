@@ -2,9 +2,19 @@
 #include <iostream>
   using namespace std;
 
+// LEVEL MANAGER MAIN
+
+//  Sebastien Van Den Bremt
+//  Jasper Charlinski
+
+// This program keeps track of the current level number, and the number of levels remaining in the game.
+// A random level number is generated base on how many levels remain in the game,
+// startEndLvl.sh is then called and passed the random level number.
+
+
 int main() {
 
-  int numLvls = 6;
+  int numLvls = 6; // Number of levels in the game + 1 
   lvlMan G(numLvls);
 
   bool gameOver = false;
@@ -20,15 +30,13 @@ int main() {
       return 1;
     }
 
-    // call to the random level
-    if (!G.startLvl(G.getLvl()))
+    if (!G.startLvl(G.getLvl())) // call to the random level
     {
-      // Call Game Over
-      cout << "Game Over! \n";
+      cout << "Game Over! \n"; // if level failed
       return 0;
     }
 
-    G.getExitCode();
+    G.getExitCode(); // add random digit to final_code.txt
   }
   
   return 0;

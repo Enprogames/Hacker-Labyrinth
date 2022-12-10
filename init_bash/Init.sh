@@ -13,9 +13,6 @@
 # MUST BE RUN FROM HACKER-LABYRINTH DIR NOT init_bash
 
 
-
-
-
 #reset the window size to full size
 printf '\e[8;60;160t'
 
