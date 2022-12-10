@@ -5,7 +5,7 @@
 
 <br />
 
-  <img src="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/mainMenu.png" alt="main menu" width="80" height="80">
+  <img src="documentation/mainMenu.png" alt="main menu" width="80" height="80">
   
 <br />
 
@@ -22,10 +22,10 @@
 
   <h3>For more detailed documentation see the following links</h3>
   <ul>
-    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/Proposal.pdf">Project Proposal</a></li>
-    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/Team.pdf">Team Documentation </a></li>
-    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/RequirmentsDocument.pdf">Requirments Document</a></li>
-    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/DesignDocument.pdf">Design Document</a></li>
-    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/TestPlanning.pdf">Test Planning Document</a></li>
+    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/Proposal.pdf" target="_blank">Project Proposal</a></li>
+    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/Team.pdf" target="_blank">Team Documentation </a></li>
+    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/RequirmentsDocument.pdf" target="_blank">Requirments Document</a></li>
+    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/DesignDocument.pdf" target="_blank">Design Document</a></li>
+    <li><a href="https://github.com/Enprogames/Hacker-Labyrinth/tree/main/documentation/TestPlanning.pdf" target="_blank">Test Planning Document</a></li>
   </ul>
 </div>
